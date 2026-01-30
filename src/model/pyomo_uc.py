@@ -8,7 +8,7 @@ def build_model(
     Fplus_min_dict, Fplus_max_dict, gplus_dict, Pplus_max_dict, Pplus_min_dict,
     Fminus_min_dict, Fminus_max_dict, gminus_dict, rho_pump_dict,
     f_breakpoints_dict, P_breakpoints_dict,
-    Vmin_dict, Vmax_dict, inflow_dict
+    Vmin_dict, Vmax_dict, inflow_dict, V0_dict
 ):
 
     m = pyo.ConcreteModel()
@@ -73,6 +73,7 @@ def build_model(
     m.Vmin = pyo.Param(m.R, initialize=Vmin_dict)
     m.Vmax = pyo.Param(m.R, initialize=Vmax_dict)
     m.inflow = pyo.Param(m.R, m.T, initialize=inflow_dict)
+    m.V0 = pyo.Param(m.R, initialize=V0_dict)
 
     # =========================================================
     # Variables
@@ -98,6 +99,11 @@ def build_model(
         m.R, m.T,
         bounds=lambda m, r, t: (pyo.value(m.Vmin[r]), pyo.value(m.Vmax[r]))
     )
+
+    # Initial volume fix
+    def init_volume_rule(m, r):
+        return m.V[r, m.T.first()] == m.V0[r]
+    m.init_volume = pyo.Constraint(m.R, rule=init_volume_rule)
 
     # =========================================================
     # Objective
@@ -243,7 +249,6 @@ def build_model(
     def vol_balance_rule(m, r, t):
         if t == m.T.last():
             return pyo.Constraint.Skip
-
         dt = m.dt
 
         # Turbine flows (k -> k+1)
