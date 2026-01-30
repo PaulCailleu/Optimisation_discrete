@@ -8,3 +8,4 @@ UC_instances/
 *.fls
 *.fdb_latexmk
 *.aux
+*.out
