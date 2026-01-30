@@ -3,3 +3,8 @@ __pycache__/
 *.pyc
 *.vscode
 UC_instances/
+*.gz
+*.log
+*.fls
+*.fdb_latexmk
+*.aux

@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+\usepackage[margin=2.5cm]{geometry}
+\begin{document}
+\section*{Formulation MILP UC hydro-thermique}
+
+\subsection*{Ensembles}
+\begin{itemize}
+  \item $T=\{1,\dots,\mathbf{T}\}$ : pas de temps.
+  \item $L$ : unités thermiques.
+  \item $K=\{1,\dots,\mathbf{K}\}$ : liens turbine/pompe entre réservoir $k$ (amont) et $k+1$ (aval).
+  \item $R=\{1,\dots,\mathbf{K}+1\}$ : réservoirs.
+  \item $S=\{1,\dots,\mathbf{S}\}$ : segments de la courbe turbine (linéarisation).
+\end{itemize}
+
+\subsection*{Paramètres}
+\begin{align*}
+& dt &&\text{durée d'un pas de temps} \\
+& \tau^{+}_l,\ \tau^{-}_l &&\text{min up / min down de l'unité } l \\
+& d_t &&\text{demande (MW)} \\
+& c_{l,t} &&\text{coût marginal thermique (€/MWh)} \\
+& su_l &&\text{coût de démarrage (€/démarrage)} \\
+& P^{\min}_{l,t},\ P^{\max}_{l,t} &&\text{bornes de puissance thermique (MW)} \\
+& g_{l,t} &&\text{rampe thermique (MW/h)} \\
+& F^{\min +}_{k,t},\ F^{\max +}_{k,t} &&\text{débit turbine min/max (m$^3$/s)} \\
+& g^+_k &&\text{rampe turbine (m$^3$/s/h)} \\
+& P^{\min +}_k,\ P^{\max +}_k &&\text{puissance turbine min/max (MW)} \\
+& F^{\min -}_{k,t},\ F^{\max -}_{k,t} &&\text{débit pompe min/max} \\
+& g^-_k &&\text{rampe pompe} \\
+& \rho_k &&\text{consommation spécifique de pompage (MW/(m$^3$/s))} \\
+& f_{k,i},\ P_{k,i} &&\text{points de rupture débit/puissance turbine ($i=1..S{+}1$)} \\
+& V^{\min}_r,\ V^{\max}_r &&\text{volumes min/max du réservoir $r$} \\
+& a_{r,t} &&\text{apport naturel (m$^3$/s)} \\
+& V^0_r &&\text{volume initial} \\
+\end{align*}
+
+\subsection*{Variables}
+\begin{align*}
+& p_{l,t} \ge 0 &&\text{puissance thermique (MW)} \\
+& y_{l,t} \in \{0,1\} &&\text{état en marche de } l \\
+& u_{l,t},\ d_{l,t} \in \{0,1\} &&\text{démarrage / arrêt} \\
+& f^+_{k,t},\ f^-_{k,t} \ge 0 &&\text{débits turbine / pompe} \\
+& z_{k,t} \in \{0,1\} &&\text{pompe active} \\
+& P^+_{k,t} \ge 0 &&\text{puissance hydro sur lien $k$ (MW)} \\
+& z_{k,s,t} \in \{0,1\},\ \theta_{k,s,t}\in[0,1] &&\text{linéarisation PWLC} \\
+& V_{r,t} &&\text{volume du réservoir } r \\
+\end{align*}
+
+\subsection*{Objectif}
+\[
+\min \sum_{t\in T}\sum_{l\in L} c_{l,t}\, p_{l,t}\, dt \;+\; \sum_{t\in T}\sum_{l\in L} su_l\, u_{l,t}
+\]
+
+\subsection*{Contraintes thermiques}
+\begin{align}
+& p_{l,t} \ge P^{\min}_{l,t}\, y_{l,t} &&\forall l,t \\
+& p_{l,t} \le P^{\max}_{l,t}\, y_{l,t} &&\forall l,t \\
+& p_{l,t} - p_{l,t-1} \le g_{l,t}\, dt &&\forall l,\, t>1 \\
+& p_{l,t-1} - p_{l,t} \le g_{l,t}\, dt &&\forall l,\, t>1 \\
+& u_{l,t} - d_{l,t} = y_{l,t} - y_{l,t-1} &&\forall l,\, t>1 \\
+& u_{l,t} + d_{l,t} \le 1 &&\forall l,t \\
+& \sum_{t'=t}^{t+\tau^+_l-1} y_{l,t'} \ge \tau^+_l\, u_{l,t} &&\forall l,\, t:\ t+\tau^+_l-1 \le \mathbf{T} \\
+& \sum_{t'=t}^{t+\tau^-_l-1} (1-y_{l,t'}) \ge \tau^-_l\, d_{l,t} &&\forall l,\, t:\ t+\tau^-_l-1 \le \mathbf{T}
+\end{align}
+
+\subsection*{Contraintes hydro et pompe}
+\begin{align}
+& F^{\min +}_{k,t} \le f^+_{k,t} \le F^{\max +}_{k,t} &&\forall k,t \\
+& f^+_{k,t} - f^+_{k,t-1} \le g^+_k\, dt &&\forall k,\, t>1 \\
+& f^+_{k,t-1} - f^+_{k,t} \le g^+_k\, dt &&\forall k,\, t>1 \\
+& F^{\min -}_{k,t} z_{k,t} \le f^-_{k,t} \le F^{\max -}_{k,t} z_{k,t} &&\forall k,t \\
+& f^-_{k,t} - f^-_{k,t-1} \le g^-_k\, dt &&\forall k,\, t>1 \\
+& f^-_{k,t-1} - f^-_{k,t} \le g^-_k\, dt &&\forall k,\, t>1 \\
+& P^{\min +}_k \le P^+_{k,t} \le P^{\max +}_k &&\forall k,t
+\end{align}
+
+\subsection*{Linéarisation courbe turbine (PWLC)}
+\begin{align}
+& \sum_{s\in S} z_{k,s,t} = 1 &&\forall k,t \\
+& \theta_{k,s,t} \le z_{k,s,t} &&\forall k,s,t \\
+& f^+_{k,t} = \sum_{s\in S} \big( f_{k,s} z_{k,s,t} + (f_{k,s+1}-f_{k,s})\, \theta_{k,s,t} \big) &&\forall k,t \\
+& P^+_{k,t} = \sum_{s\in S} \big( P_{k,s} z_{k,s,t} + (P_{k,s+1}-P_{k,s})\, \theta_{k,s,t} \big) &&\forall k,t
+\end{align}
+
+\subsection*{Bilan volume réservoirs}
+Pour $r\in R$, notons $k=r$ le lien vers l'aval et $k=r-1$ le lien amont (si existants).
+\[
+V_{r,t+1} = V_{r,t} + a_{r,t}\, dt
+ + \underbrace{f^+_{r-1,t} dt}_{\text{turbine amont}} - \underbrace{f^+_{r,t} dt}_{\text{turbine aval}}
+ - \underbrace{f^-_{r-1,t} dt}_{\text{pompe vers amont}}
+ + \underbrace{f^-_{r,t} dt}_{\text{pompe depuis aval}}
+\quad \forall r,\ t<\mathbf{T}
+\]
+Bornes : $V^{\min}_r \le V_{r,t} \le V^{\max}_r$, et $V_{r,1}=V^0_r$.
+
+\subsection*{Bilan puissance}
+\[
+\sum_{l\in L} p_{l,t}
+ + \sum_{k\in K} P^+_{k,t}
+ - \sum_{k\in K} \rho_k\, f^-_{k,t}
+ = d_t \quad \forall t\in T
+\]
+
+\end{document}
