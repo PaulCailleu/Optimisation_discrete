@@ -1,111 +1,357 @@
-\documentclass{article}
-\usepackage{amsmath, amssymb}
-\usepackage[margin=2.5cm]{geometry}
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage{float}
 \usepackage{hyperref}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage{gensymb}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{booktabs}
+\usepackage{mdframed}
+
+
+
+
 \begin{document}
 
-\textbf{\large Samuel Bergina \& Paul Cailleu} \\
+\begin{titlepage}
 
-Lien du repo github : \href{https://github.com/PaulCailleu/Optimisation_discrete}{$github.com/PaulCailleu/Optimisation\_discrete$}
+\hrule
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[width=\textwidth]{/Users/paulcailleu/Documents/Etudes/ENSTA/optimisation_discrete/images/ipp_logo.png}
+    \end{subfigure}
+    \hspace{1cm}
+    \begin{subfigure}[b]{0.4\textwidth}
+        \includegraphics[width=\textwidth]{/Users/paulcailleu/Documents/Etudes/ENSTA/optimisation_discrete/images/Logo_ENSTA-2025.png}
+    \end{subfigure}
+\end{figure}
+\hrule
+
+\vspace*{1cm}
+
+\begin{center}
+
+    \huge Samuel Bergina \& Paul Cailleu\\
+
+    \vspace{0.2cm}
+
+    \Large \textit{Cycle Ingénieur ENSTA Paris, Énergies en Transition}\\
+
+    \vspace{1.2cm}
+
+    \hrule
+
+    \vspace{0.5cm}
+
+    {\LARGE \textbf{Rapport Scientifique}}\\
+
+    \vspace{0.5cm}
+
+    {\LARGE Production optimale d'un ensemble d'unité de production couplé à un réseau de stockage hydraulique}\\
+
+    \vspace{0.5cm}
+
+    \hrule
+
+    \vspace{1cm}
+    \textbf{Projet d'optimisation discrète}\\
+    \vspace{1cm}
+    {\Large \textit{Décembre 2025 -- Février 2026}}\\
+\end{center}
+
+\end{titlepage}
+
+\setcounter{figure}{0}
+
+\newpage
+\tableofcontents
+
+\newpage
 
 
-\section*{Formulation MILP UC hydro-thermique}
 
-\subsection*{Ensembles}
+\section{Formulation MILP UC hydro-thermique}
+
+Le problème de \textit{Unit Commitment} (UC) consiste à décider, à chaque
+pas de temps, quelles unités de production sont en marche (\emph{commitment})
+et à quelle puissance elles fonctionnent (\emph{dispatch}), de façon à
+satisfaire la demande au coût minimum tout en respectant les contraintes
+techniques (rampes, durées minimales de marche/arrêt, bilans hydrauliques).
+La formulation est un programme mixte en nombres entiers (MILP) couplant
+un parc thermique et une cascade hydraulique.
+
+% -----------------------------------------------------------------------
+\subsection{Ensembles}
+% -----------------------------------------------------------------------
+
 \begin{itemize}
-  \item $T=\{1,\dots,\mathbf{T}\}$ : pas de temps.
-  \item $L$ : unités thermiques.
-  \item $K=\{1,\dots,\mathbf{K}\}$ : liens turbine/pompe entre réservoir $k$ (amont) et $k+1$ (aval).
-  \item $R=\{1,\dots,\mathbf{K}+1\}$ : réservoirs.
-  \item $S=\{1,\dots,\mathbf{S}\}$ : segments de la courbe turbine (linéarisation).
+  \item $\mathcal{T}=\{1,\dots,T\}$ : pas de temps (horizon de planification).
+  \item $\mathcal{L}$ : unités thermiques (centrales à flamme, turbines à gaz, etc.).
+  \item $\mathcal{K}$ : arcs du réseau hydraulique.
+        Chaque arc $k\in\mathcal{K}$ correspond à un groupe
+        turbine/pompe reliant un réservoir amont $r^{\rm src}_k$ à un réservoir aval
+        $r^{\rm dst}_k$. La topologie est un graphe orienté acyclique (DAG)
+        quelconque~: chaîne simple, arcs parallèles et bifurcations sont tous
+        supportés.
+  \item $\mathcal{R}=\{1,\dots,|\mathcal{K}|+1\}$ : réservoirs.
+        Le nœud $r=|\mathcal{K}|+1$ est le \emph{réservoir de décharge}
+        (exutoire/rivière aval), modélisé par $V^{\max}=+\infty$ et $V^0=0$.
+  \item $\mathcal{S}=\{1,\dots,S\}$ : segments de la linéarisation par morceaux
+        de la courbe débit–puissance de chaque turbine.
 \end{itemize}
 
-\subsection*{Paramètres}
+% -----------------------------------------------------------------------
+\subsection{Paramètres}
+% -----------------------------------------------------------------------
+
 \begin{align*}
 & dt &&\text{durée d'un pas de temps} \\
-& \tau^{+}_l,\ \tau^{-}_l &&\text{min up / min down de l'unité } l \\
-& d_t &&\text{demande (MW)} \\
-& c_{l,t} &&\text{coût marginal thermique (€/MWh)} \\
-& su_l &&\text{coût de démarrage (€/démarrage)} \\
-& P^{\min}_{l,t},\ P^{\max}_{l,t} &&\text{bornes de puissance thermique (MW)} \\
-& g_{l,t} &&\text{rampe thermique (MW/h)} \\
-& F^{\min +}_{k,t},\ F^{\max +}_{k,t} &&\text{débit turbine min/max (m$^3$/s)} \\
-& g^+_k &&\text{rampe turbine (m$^3$/s/h)} \\
-& P^{\min +}_k,\ P^{\max +}_k &&\text{puissance turbine min/max (MW)} \\
-& F^{\min -}_{k,t},\ F^{\max -}_{k,t} &&\text{débit pompe min/max} \\
-& g^-_k &&\text{rampe pompe} \\
-& \rho_k &&\text{consommation spécifique de pompage (MW/(m$^3$/s))} \\
-& f_{k,i},\ P_{k,i} &&\text{points de rupture débit/puissance turbine ($i=1..S{+}1$)} \\
-& V^{\min}_r,\ V^{\max}_r &&\text{volumes min/max du réservoir $r$} \\
-& a_{r,t} &&\text{apport naturel (m$^3$/s)} \\
-& V^0_r &&\text{volume initial} \\
+& \tau^{+}_l,\ \tau^{-}_l &&\text{durées minimales de marche / d'arrêt de l'unité } l \\
+& d_t &&\text{demande électrique totale au pas $t$ (MW)} \\
+& c_{l,t} &&\text{coût marginal variable de l'unité $l$ au pas $t$ (€/MWh)} \\
+& su_l &&\text{coût fixe de démarrage de l'unité $l$ (€/démarrage)} \\
+& P^{\min}_{l,t},\ P^{\max}_{l,t} &&\text{bornes de puissance thermique de $l$ (MW)} \\
+& g_{l,t} &&\text{rampe max de $l$ (MW/h) : variation de puissance autorisée par pas} \\[4pt]
+& r^{\rm src}_k,\ r^{\rm dst}_k &&\text{réservoir source / destination de l'arc $k$ (topologie DAG)} \\
+& F^{\min +}_{k,t},\ F^{\max +}_{k,t} &&\text{débit turbine min/max sur l'arc $k$ au pas $t$} \\
+& g^+_k &&\text{rampe turbine (variation de débit autorisée par pas, en débit/h)} \\
+& P^{\min +}_k,\ P^{\max +}_k &&\text{puissance turbine min/max sur l'arc $k$ (MW)} \\
+& F^{\min -}_{k,t},\ F^{\max -}_{k,t} &&\text{débit pompe min/max sur l'arc $k$} \\
+& g^-_k &&\text{rampe pompe (débit/h)} \\
+& \rho_k &&\text{consommation spécifique de pompage (MW/débit)} \\
+& f_{k,i},\ P_{k,i} &&\text{points de rupture de la courbe turbine ($i=1\ldots S{+}1$)} \\
+& V^{\min}_r,\ V^{\max}_r &&\text{bornes de volume du réservoir $r$} \\
+& a_{r,t} &&\text{apport naturel (pluie/fonte) au réservoir $r$ au pas $t$} \\
+& V^0_r &&\text{volume initial du réservoir $r$} \\
 \end{align*}
 
-\subsection*{Variables}
+% -----------------------------------------------------------------------
+\subsection{Variables de décision}
+% -----------------------------------------------------------------------
+
+\paragraph{Thermique.}
 \begin{align*}
-& p_{l,t} \ge 0 &&\text{puissance thermique (MW)} \\
-& y_{l,t} \in \{0,1\} &&\text{état en marche de } l \\
-& u_{l,t},\ d_{l,t} \in \{0,1\} &&\text{démarrage / arrêt} \\
-& f^+_{k,t},\ f^-_{k,t} \ge 0 &&\text{débits turbine / pompe} \\
-& z_{k,t} \in \{0,1\} &&\text{pompe active} \\
-& P^+_{k,t} \ge 0 &&\text{puissance hydro sur lien $k$ (MW)} \\
-& z_{k,s,t} \in \{0,1\},\ \theta_{k,s,t}\in[0,1] &&\text{linéarisation PWLC} \\
-& V_{r,t} &&\text{volume du réservoir } r \\
+& p_{l,t} \ge 0 &&\text{puissance injectée par l'unité $l$ au pas $t$ (MW)} \\
+& y_{l,t} \in \{0,1\} &&\text{1 si l'unité $l$ est en marche au pas $t$, 0 sinon} \\
+& u_{l,t} \in \{0,1\} &&\text{1 si $l$ démarre entre $t{-}1$ et $t$} \\
+& d_{l,t} \in \{0,1\} &&\text{1 si $l$ s'arrête entre $t{-}1$ et $t$} \\
 \end{align*}
 
-\subsection*{Objectif}
-\[
-\min \sum_{t\in T}\sum_{l\in L} c_{l,t}\, p_{l,t}\, dt \;+\; \sum_{t\in T}\sum_{l\in L} su_l\, u_{l,t}
-\]
+\paragraph{Hydraulique.}
+\begin{align*}
+& f^+_{k,t} \ge 0 &&\text{débit turbiné sur l'arc $k$ au pas $t$} \\
+& f^-_{k,t} \ge 0 &&\text{débit pompé sur l'arc $k$ au pas $t$ (sens aval$\to$amont)} \\
+& z_{k,t} \in \{0,1\} &&\text{1 si la pompe de l'arc $k$ est en marche au pas $t$} \\
+& P^+_{k,t} \ge 0 &&\text{puissance électrique produite par la turbine $k$ (MW)} \\
+& z_{k,s,t} \in \{0,1\} &&\text{indicatrice du segment $s$ actif sur l'arc $k$ au pas $t$} \\
+& \theta_{k,s,t}\in[0,1] &&\text{position relative dans le segment $s$ (interpolation)} \\
+& V_{r,t} \ge 0 &&\text{volume stocké dans le réservoir $r$ au début du pas $t$} \\
+\end{align*}
 
-\subsection*{Contraintes thermiques}
+% -----------------------------------------------------------------------
+\subsection{Objectif}
+% -----------------------------------------------------------------------
+
+On minimise le coût total de production sur l'horizon~:
+\[
+\min \underbrace{\sum_{t\in\mathcal{T}}\sum_{l\in\mathcal{L}}
+      c_{l,t}\, p_{l,t}\, dt}_{\text{coût variable de fonctionnement}}
+\;+\;
+\underbrace{\sum_{t\in\mathcal{T}}\sum_{l\in\mathcal{L}}
+      su_l\, u_{l,t}}_{\text{coût de démarrage}}
+\]
+La production hydraulique n'a pas de coût variable explicite (l'eau est
+gratuite) : elle contribue indirectement en réduisant le recours aux
+unités thermiques coûteuses.
+
+% -----------------------------------------------------------------------
+\subsection{Contraintes thermiques}
+% -----------------------------------------------------------------------
+
+\paragraph{Bornes de puissance.}
+Une unité ne produit que si elle est en marche ($y_{l,t}=1$) et doit alors
+rester entre sa puissance minimale technique et sa puissance maximale~:
 \begin{align}
-& p_{l,t} \ge P^{\min}_{l,t}\, y_{l,t} &&\forall l,t \\
-& p_{l,t} \le P^{\max}_{l,t}\, y_{l,t} &&\forall l,t \\
-& p_{l,t} - p_{l,t-1} \le g_{l,t}\, dt &&\forall l,\, t>1 \\
-& p_{l,t-1} - p_{l,t} \le g_{l,t}\, dt &&\forall l,\, t>1 \\
-& u_{l,t} - d_{l,t} = y_{l,t} - y_{l,t-1} &&\forall l,\, t>1 \\
-& u_{l,t} + d_{l,t} \le 1 &&\forall l,t \\
-& \sum_{t'=t}^{t+\tau^+_l-1} y_{l,t'} \ge \tau^+_l\, u_{l,t} &&\forall l,\, t:\ t+\tau^+_l-1 \le \mathbf{T} \\
-& \sum_{t'=t}^{t+\tau^-_l-1} (1-y_{l,t'}) \ge \tau^-_l\, d_{l,t} &&\forall l,\, t:\ t+\tau^-_l-1 \le \mathbf{T}
+& p_{l,t} \ge P^{\min}_{l,t}\, y_{l,t} &&\forall l\in\mathcal{L},\, t\in\mathcal{T} \\
+& p_{l,t} \le P^{\max}_{l,t}\, y_{l,t} &&\forall l\in\mathcal{L},\, t\in\mathcal{T}
 \end{align}
 
-\subsection*{Contraintes hydro et pompe}
+\paragraph{Rampes.}
+La variation de puissance entre deux pas consécutifs est limitée par la
+rampe physique de l'unité (montée et descente symétriques ici)~:
 \begin{align}
-& F^{\min +}_{k,t} \le f^+_{k,t} \le F^{\max +}_{k,t} &&\forall k,t \\
-& f^+_{k,t} - f^+_{k,t-1} \le g^+_k\, dt &&\forall k,\, t>1 \\
-& f^+_{k,t-1} - f^+_{k,t} \le g^+_k\, dt &&\forall k,\, t>1 \\
-& F^{\min -}_{k,t} z_{k,t} \le f^-_{k,t} \le F^{\max -}_{k,t} z_{k,t} &&\forall k,t \\
-& f^-_{k,t} - f^-_{k,t-1} \le g^-_k\, dt &&\forall k,\, t>1 \\
-& f^-_{k,t-1} - f^-_{k,t} \le g^-_k\, dt &&\forall k,\, t>1 \\
-& P^{\min +}_k \le P^+_{k,t} \le P^{\max +}_k &&\forall k,t
+& p_{l,t} - p_{l,t-1} \le g_{l,t}\, dt &&\forall l\in\mathcal{L},\, t>1 \\
+& p_{l,t-1} - p_{l,t} \le g_{l,t}\, dt &&\forall l\in\mathcal{L},\, t>1
 \end{align}
 
-\subsection*{Linéarisation courbe turbine (PWLC)}
+\paragraph{Transitions d'état (démarrage / arrêt).}
+La variable binaire $u_{l,t}$ (resp. $d_{l,t}$) vaut 1 exactement quand
+$y$ passe de 0 à 1 (resp. de 1 à 0)~; les deux événements s'excluent
+mutuellement~:
 \begin{align}
-& \sum_{s\in S} z_{k,s,t} = 1 &&\forall k,t \\
-& \theta_{k,s,t} \le z_{k,s,t} &&\forall k,s,t \\
-& f^+_{k,t} = \sum_{s\in S} \big( f_{k,s} z_{k,s,t} + (f_{k,s+1}-f_{k,s})\, \theta_{k,s,t} \big) &&\forall k,t \\
-& P^+_{k,t} = \sum_{s\in S} \big( P_{k,s} z_{k,s,t} + (P_{k,s+1}-P_{k,s})\, \theta_{k,s,t} \big) &&\forall k,t
+& u_{l,t} - d_{l,t} = y_{l,t} - y_{l,t-1} &&\forall l\in\mathcal{L},\, t>1 \\
+& u_{l,t} + d_{l,t} \le 1 &&\forall l\in\mathcal{L},\, t\in\mathcal{T}
 \end{align}
 
-\subsection*{Bilan volume réservoirs}
-Pour $r\in R$, notons $k=r$ le lien vers l'aval et $k=r-1$ le lien amont (si existants).
-\[
-V_{r,t+1} = V_{r,t} + a_{r,t}\, dt
- + \underbrace{f^+_{r-1,t} dt}_{\text{turbine amont}} - \underbrace{f^+_{r,t} dt}_{\text{turbine aval}}
- - \underbrace{f^-_{r-1,t} dt}_{\text{pompe vers amont}}
- + \underbrace{f^-_{r,t} dt}_{\text{pompe depuis aval}}
-\quad \forall r,\ t<\mathbf{T}
-\]
-Bornes : $V^{\min}_r \le V_{r,t} \le V^{\max}_r$, et $V_{r,1}=V^0_r$.
+\paragraph{Durées minimales de marche et d'arrêt.}
+Après un démarrage, l'unité doit rester en marche au moins $\tau^+_l$ pas~;
+après un arrêt, elle doit rester arrêtée au moins $\tau^-_l$ pas~:
+\begin{align}
+& \sum_{t'=t}^{t+\tau^+_l-1} y_{l,t'} \ge \tau^+_l\, u_{l,t}
+  &&\forall l\in\mathcal{L},\; t :\ t+\tau^+_l-1 \le T \\
+& \sum_{t'=t}^{t+\tau^-_l-1} (1-y_{l,t'}) \ge \tau^-_l\, d_{l,t}
+  &&\forall l\in\mathcal{L},\; t :\ t+\tau^-_l-1 \le T
+\end{align}
+Ces contraintes ne sont posées que lorsque la fenêtre $[t, t+\tau-1]$
+tient entièrement dans l'horizon.
 
-\subsection*{Bilan puissance}
+% -----------------------------------------------------------------------
+\subsection{Contraintes hydrauliques}
+% -----------------------------------------------------------------------
+
+\paragraph{Bornes de débit turbine.}
+Le débit turbiné sur l'arc $k$ est borné à chaque pas~:
+\begin{align}
+& F^{\min +}_{k,t} \le f^+_{k,t} \le F^{\max +}_{k,t} &&\forall k\in\mathcal{K},\, t\in\mathcal{T}
+\end{align}
+
+\paragraph{Rampes turbine.}
+Le débit ne peut varier trop vite (cavitation, contraintes mécaniques)~:
+\begin{align}
+& f^+_{k,t} - f^+_{k,t-1} \le g^+_k\, dt &&\forall k\in\mathcal{K},\, t>1 \\
+& f^+_{k,t-1} - f^+_{k,t} \le g^+_k\, dt &&\forall k\in\mathcal{K},\, t>1
+\end{align}
+
+\paragraph{Pompe : débit et rampe.}
+La pompe ne peut fonctionner que si $z_{k,t}=1$, et son débit est nul
+sinon (contrainte de type \textit{on/off})~:
+\begin{align}
+& F^{\min -}_{k,t}\, z_{k,t} \le f^-_{k,t} \le F^{\max -}_{k,t}\, z_{k,t}
+  &&\forall k\in\mathcal{K},\, t\in\mathcal{T} \\
+& f^-_{k,t} - f^-_{k,t-1} \le g^-_k\, dt &&\forall k\in\mathcal{K},\, t>1 \\
+& f^-_{k,t-1} - f^-_{k,t} \le g^-_k\, dt &&\forall k\in\mathcal{K},\, t>1
+\end{align}
+
+\paragraph{Bornes de puissance turbine.}
+La puissance produite par la turbine doit rester dans sa plage de
+fonctionnement (indépendamment du débit, les bornes sont vérifiées via la
+courbe PWLC ci-dessous)~:
+\begin{align}
+& P^{\min +}_k \le P^+_{k,t} \le P^{\max +}_k &&\forall k\in\mathcal{K},\, t\in\mathcal{T}
+\end{align}
+
+% -----------------------------------------------------------------------
+\subsection{Linéarisation de la courbe débit–puissance (PWLC)}
+% -----------------------------------------------------------------------
+
+La relation $P^+_{k,t} = \varphi_k(f^+_{k,t})$ entre débit turbiné et
+puissance produite est non linéaire (rendement variable avec la hauteur de
+chute). On l'approche par une fonction linéaire par morceaux à $S$ segments,
+définie par $S+1$ points de rupture $(f_{k,i},\, P_{k,i})$.
+
+La technique SOS-2 (\textit{Special Ordered Set}) sélectionne un unique
+segment actif $s$ via la variable $z_{k,s,t}$, puis interpole
+linéairement à l'intérieur de ce segment via $\theta_{k,s,t}$~:
+\begin{align}
+& \sum_{s\in\mathcal{S}} z_{k,s,t} = 1
+  &&\forall k\in\mathcal{K},\, t\in\mathcal{T}
+  \quad\text{(exactement un segment actif)} \\
+& \theta_{k,s,t} \le z_{k,s,t}
+  &&\forall k\in\mathcal{K},\, s\in\mathcal{S},\, t\in\mathcal{T}
+  \quad\text{($\theta$ nul si segment inactif)} \\
+& f^+_{k,t} = \sum_{s\in\mathcal{S}} \bigl(f_{k,s}\, z_{k,s,t}
+    + (f_{k,s+1}-f_{k,s})\,\theta_{k,s,t}\bigr)
+  &&\forall k\in\mathcal{K},\, t\in\mathcal{T} \\
+& P^+_{k,t} = \sum_{s\in\mathcal{S}} \bigl(P_{k,s}\, z_{k,s,t}
+    + (P_{k,s+1}-P_{k,s})\,\theta_{k,s,t}\bigr)
+  &&\forall k\in\mathcal{K},\, t\in\mathcal{T}
+\end{align}
+Les deux dernières contraintes imposent simultanément $f^+$ et $P^+$ sur
+le même segment~: la courbe $P(\!f)$ est ainsi respectée de façon exacte
+sur chaque morceau.
+
+% -----------------------------------------------------------------------
+\subsection{Bilan volumétrique des réservoirs (topologie DAG générale)}
+% -----------------------------------------------------------------------
+
+On définit pour chaque réservoir $r$ les ensembles d'arcs incidents~:
 \[
-\sum_{l\in L} p_{l,t}
- + \sum_{k\in K} P^+_{k,t}
- - \sum_{k\in K} \rho_k\, f^-_{k,t}
- = d_t \quad \forall t\in T
+  \mathcal{K}^{\rm in}_r  = \{k\in\mathcal{K} : r^{\rm dst}_k = r\}
+  \quad\text{(arcs \emph{arrivant} en }r\text{)},
+  \qquad
+  \mathcal{K}^{\rm out}_r = \{k\in\mathcal{K} : r^{\rm src}_k = r\}
+  \quad\text{(arcs \emph{partant} de }r\text{)}.
 \]
+
+Le bilan d'eau à chaque pas de temps s'écrit~:
+
+\begin{equation}
+  V_{r,t+1} = V_{r,t}
+  \;+\; a_{r,t}\,dt
+  \;+\!\!\underbrace{\sum_{k\in\mathcal{K}^{\rm in}_r} \!\!f^+_{k,t}\,dt}_{\substack{\text{eau amenée}\\\text{par turbinage}}}
+  \;-\!\!\underbrace{\sum_{k\in\mathcal{K}^{\rm out}_r}\!\!f^+_{k,t}\,dt}_{\substack{\text{eau prélevée}\\\text{par turbinage}}}
+  \;-\!\!\underbrace{\sum_{k\in\mathcal{K}^{\rm in}_r} \!\!f^-_{k,t}\,dt}_{\substack{\text{eau remontée}\\\text{par pompage}}}
+  \;+\!\!\underbrace{\sum_{k\in\mathcal{K}^{\rm out}_r}\!\!f^-_{k,t}\,dt}_{\substack{\text{eau renvoyée}\\\text{par pompage}}}
+  \quad \forall r\in\mathcal{R},\; t < T
+\end{equation}
+
+\noindent\textbf{Lecture intuitive.}
+Le turbinage sur un arc $k$ \emph{entrant} en $r$ remplit le réservoir~;
+le turbinage sur un arc $k$ \emph{sortant} le vide.
+Le pompage inverse le sens~: sur un arc entrant en $r$, la pompe
+\emph{reprend} de l'eau dans $r$ pour la renvoyer en amont~;
+sur un arc sortant de $r$, elle \emph{rapporte} de l'eau depuis l'aval.
+La convention $\sum_\emptyset(\cdot)=0$ gère naturellement les nœuds
+sources (aucun arc entrant) et le nœud de décharge (aucun arc sortant)
+sans condition particulière.
+
+\noindent\textbf{Bornes et condition initiale~:}
+\[
+  V^{\min}_r \le V_{r,t} \le V^{\max}_r \quad \forall r,t,
+  \qquad
+  V_{r,1} = V^0_r \quad \forall r.
+\]
+
+\paragraph{Cas particulier : chaîne simple.}
+Si $r^{\rm src}_k = k$ et $r^{\rm dst}_k = k+1$ pour tout $k$
+(cascade linéaire), alors $\mathcal{K}^{\rm in}_r = \{r-1\}$ et
+$\mathcal{K}^{\rm out}_r = \{r\}$, et l'équation~(23) se réduit à~:
+\[
+  V_{r,t+1} = V_{r,t} + a_{r,t}\,dt
+  + f^+_{r-1,t}\,dt - f^+_{r,t}\,dt
+  - f^-_{r-1,t}\,dt + f^-_{r,t}\,dt.
+\]
+
+% -----------------------------------------------------------------------
+\subsection{Bilan puissance (équilibre offre–demande)}
+% -----------------------------------------------------------------------
+
+À chaque pas de temps, la somme des injections (thermique + hydro)
+moins la consommation des pompes doit exactement couvrir la demande~:
+\begin{equation}
+\underbrace{\sum_{l\in\mathcal{L}} p_{l,t}}_{\text{thermique}}
+ + \underbrace{\sum_{k\in\mathcal{K}} P^+_{k,t}}_{\text{hydro}}
+ - \underbrace{\sum_{k\in\mathcal{K}} \rho_k\, f^-_{k,t}}_{\text{pompage (conso)}}
+ = d_t \quad \forall t\in\mathcal{T}
+\end{equation}
+Le pompage est une charge électrique~: il consomme $\rho_k\,f^-_{k,t}$
+MW sur l'arc $k$ pour refouler du débit $f^-_{k,t}$ en amont.
+
+
+
+Lien du repo github : \href{https://github.com/PaulCailleu/Optimisation_discrete}{$github.com/PaulCailleu/Optimisation\_discrete$}
 
 \end{document}

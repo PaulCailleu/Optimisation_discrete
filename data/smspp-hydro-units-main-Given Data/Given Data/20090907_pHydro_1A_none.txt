@@ -1,0 +1,5359 @@
+netcdf \20090907_pHydro_1A_none {
+
+// group attributes:
+		 :SMS++_file_type = 1 ;
+
+group: Block_0 {
+	 dimensions:
+		 TimeHorizon = 96 ;
+		 NumberUnits = 150 ;
+	 variables:
+		 double ActivePowerDemand(TimeHorizon) ;
+
+	 // group attributes:
+		 :type = "UCBlock" ;
+	 data:
+
+		 ActivePowerDemand=			42731.1096,41749.2552,42429.2552,42476.2552,41485.1924,40157.2924,40074.1877,39798.7377,39914.7377,39952.5898,41676.8209,42176.8209,42880.6662,43419.1162,43009.7883,44363.0265,45801.6647,47055.6248,48017.1703,48371.4048,47789.084,47833.9476,47985.5476,47910.8692,47463.0192,48005.7535,48468.0697,48918.0194,48569.5617,48627.2096,47998.9096,48196.4623,47233.4623,47219.0122,46752.0123,46818.7623,47093.8222,47422.9273,47862.7097,48227.6481,48379.106,48448.2678,47805.2048,47344.9811,46864.4291,47383.2201,44645.7692,44609.2082,45532.0742,44749.9055,46509.1358,46016.6234,44927.8334,44004.602,45534.202,45260.1622,44463.1622,44813.1622,45298.1674,45893.2149,46132.6418,47753.6089,47925.6567,48249.9336,47867.9386,48646.2342,48790.4416,49019.2996,49045.5693,49544.3193,49565.7239,49518.494,49210.5804,49386.9246,49124.8076,49229.6076,48673.7589,49108.1995,48755.1891,49011.2832,48772.9847,48959.9919,48540.4591,48723.5221,48214.7907,48869.0994,48227.6994,48997.3042,48331.3042,48447.5042,48457.1123,48139.9508,46663.1595,47384.6595,46349.6379,46420.4471;
+
+	 group: NetworkData {
+		 dimensions:
+				NumberNodes = 1 ;
+	 } // group NetworkData
+
+	 group: UnitBlock_0 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 200.000000 ;
+			 MaxPower = 925.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 879.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_0
+
+	 group: UnitBlock_1 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 200.000000 ;
+			 MaxPower = 958.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 200.000000 ;
+			 InitUpDownTime = -239 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_1
+
+	 group: UnitBlock_2 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 230.000000 ;
+			 MaxPower = 947.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 450.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 715.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_2
+
+	 group: UnitBlock_3 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 190.000000 ;
+			 MaxPower = 917.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 190.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_3
+
+	 group: UnitBlock_4 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 839.000000 ;
+			 MaxPower = 875.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 120.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   6.600000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 857.000000 ;
+			 InitUpDownTime = 397 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_4
+
+	 group: UnitBlock_5 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 220.000000 ;
+			 MaxPower = 909.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 220.000000 ;
+			 InitUpDownTime = -335 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_5
+
+	 group: UnitBlock_6 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 210.000000 ;
+			 MaxPower = 882.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 210.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_6
+
+	 group: UnitBlock_7 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 210.000000 ;
+			 MaxPower = 878.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.205001 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 817.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_7
+
+	 group: UnitBlock_8 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1314.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.705000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1163.000000 ;
+			 InitUpDownTime = 46 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_8
+
+	 group: UnitBlock_9 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1316.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 260.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_9
+
+	 group: UnitBlock_10 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1299.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.299999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1299.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_10
+
+	 group: UnitBlock_11 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1306.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.329999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1256.000000 ;
+			 InitUpDownTime = 46 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_11
+
+	 group: UnitBlock_12 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 350.000000 ;
+			 MaxPower = 1295.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 350.000000 ;
+			 InitUpDownTime = -335 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_12
+
+	 group: UnitBlock_13 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 340.000000 ;
+			 MaxPower = 1299.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.370001 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1198.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_13
+
+	 group: UnitBlock_14 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 176.000000 ;
+			 MaxPower = 890.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 176.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_14
+
+	 group: UnitBlock_15 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 176.000000 ;
+			 MaxPower = 905.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 890.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_15
+
+	 group: UnitBlock_16 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 176.000000 ;
+			 MaxPower = 866.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 176.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_16
+
+	 group: UnitBlock_17 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 176.000000 ;
+			 MaxPower = 912.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 270.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 878.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_17
+
+	 group: UnitBlock_18 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 375.000000 ;
+			 MaxPower = 1500.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 360.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.639999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1370.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_18
+
+	 group: UnitBlock_19 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 375.000000 ;
+			 MaxPower = 1450.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 540.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.440000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1420.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_19
+
+	 group: UnitBlock_20 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 370.000000 ;
+			 MaxPower = 1495.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 480.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.630000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1390.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_20
+
+	 group: UnitBlock_21 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 370.000000 ;
+			 MaxPower = 1495.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.429998 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 370.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_21
+
+	 group: UnitBlock_22 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 183.000000 ;
+			 MaxPower = 895.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.050000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 880.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  72.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_22
+
+	 group: UnitBlock_23 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 183.000000 ;
+			 MaxPower = 890.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 890.000000 ;
+			 InitUpDownTime = 931 ;
+			 MinUpTime =  72.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_23
+
+	 group: UnitBlock_24 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 183.000000 ;
+			 MaxPower = 888.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 183.000000 ;
+			 InitUpDownTime = -763 ;
+			 MinUpTime =  72.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_24
+
+	 group: UnitBlock_25 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 183.000000 ;
+			 MaxPower = 908.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.069998 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 822.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  72.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_25
+
+	 group: UnitBlock_26 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 180.000000 ;
+			 MaxPower = 877.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.400001 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 802.000000 ;
+			 InitUpDownTime = 445 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_26
+
+	 group: UnitBlock_27 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 180.000000 ;
+			 MaxPower = 891.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.380000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 832.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_27
+
+	 group: UnitBlock_28 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 180.000000 ;
+			 MaxPower = 890.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 180.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_28
+
+	 group: UnitBlock_29 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 180.000000 ;
+			 MaxPower = 890.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 890.000000 ;
+			 InitUpDownTime = 94 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  96.000000 ;
+		 } // group UnitBlock_29
+
+	 group: UnitBlock_30 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 180.000000 ;
+			 MaxPower = 880.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 150.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 838.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_30
+
+	 group: UnitBlock_31 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 180.000000 ;
+			 MaxPower = 871.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 180.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_31
+
+	 group: UnitBlock_32 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1315.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 260.000000 ;
+			 InitUpDownTime = -94 ;
+			 MinUpTime =  98.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_32
+
+	 group: UnitBlock_33 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1334.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.359999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1237.000000 ;
+			 InitUpDownTime = 356 ;
+			 MinUpTime =  98.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_33
+
+	 group: UnitBlock_34 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1310.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.725001 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 999.000000 ;
+			 InitUpDownTime = 32 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_34
+
+	 group: UnitBlock_35 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1310.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  10.049993 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1178.000000 ;
+			 InitUpDownTime = 430 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  96.000000 ;
+		 } // group UnitBlock_35
+
+	 group: UnitBlock_36 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 184.000000 ;
+			 MaxPower = 896.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 184.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_36
+
+	 group: UnitBlock_37 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 184.000000 ;
+			 MaxPower = 895.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.080000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 869.000000 ;
+			 InitUpDownTime = 142 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_37
+
+	 group: UnitBlock_38 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 184.000000 ;
+			 MaxPower = 900.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 878.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_38
+
+	 group: UnitBlock_39 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 182.000000 ;
+			 MaxPower = 907.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.059999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 814.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_39
+
+	 group: UnitBlock_40 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 182.000000 ;
+			 MaxPower = 914.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 300.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.110000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 902.000000 ;
+			 InitUpDownTime = 478 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_40
+
+	 group: UnitBlock_41 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 184.000000 ;
+			 MaxPower = 932.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 300.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 923.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_41
+
+	 group: UnitBlock_42 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1308.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 260.000000 ;
+			 InitUpDownTime = -335 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_42
+
+	 group: UnitBlock_43 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1308.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.744999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 260.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_43
+
+	 group: UnitBlock_44 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 270.000000 ;
+			 MaxPower = 1310.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.735000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1173.000000 ;
+			 InitUpDownTime = 62 ;
+			 MinUpTime =  98.000000 ;
+			 MinDownTime =  47.000000 ;
+		 } // group UnitBlock_44
+
+	 group: UnitBlock_45 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 270.000000 ;
+			 MaxPower = 1310.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.309998 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1230.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  98.000000 ;
+			 MinDownTime =  47.000000 ;
+		 } // group UnitBlock_45
+
+	 group: UnitBlock_46 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 270.000000 ;
+			 MaxPower = 1316.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.340001 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1253.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  98.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_46
+
+	 group: UnitBlock_47 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 270.000000 ;
+			 MaxPower = 1284.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.350000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1187.000000 ;
+			 InitUpDownTime = 19 ;
+			 MinUpTime =  98.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_47
+
+	 group: UnitBlock_48 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1330.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.695001 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1194.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  98.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_48
+
+	 group: UnitBlock_49 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1330.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.320000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1200.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  98.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_49
+
+	 group: UnitBlock_50 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1330.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 1200.000000 ;
+			 DeltaRampDown = 1200.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.714999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 1280.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_50
+
+	 group: UnitBlock_51 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 260.000000 ;
+			 MaxPower = 1330.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 450.000000 ;
+			 DeltaRampDown = 750.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 260.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  95.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_51
+
+	 group: UnitBlock_52 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 180.000000 ;
+			 MaxPower = 907.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.410000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 890.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_52
+
+	 group: UnitBlock_53 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 180.000000 ;
+			 MaxPower = 907.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.419999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 890.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_53
+
+	 group: UnitBlock_54 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 180.000000 ;
+			 MaxPower = 910.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.089999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 859.000000 ;
+			 InitUpDownTime = 407 ;
+			 MinUpTime =  72.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_54
+
+	 group: UnitBlock_55 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 180.000000 ;
+			 MaxPower = 905.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.389999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 853.000000 ;
+			 InitUpDownTime = 93 ;
+			 MinUpTime =  72.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_55
+
+	 group: UnitBlock_56 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 862.000000 ;
+			 MaxPower = 898.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   4.100001 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 880.000000 ;
+			 InitUpDownTime = 277 ;
+			 MinUpTime =  72.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_56
+
+	 group: UnitBlock_57 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 180.000000 ;
+			 MaxPower = 920.000000 ;
+			 FixedConsumption =  25.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =   3.549999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 180.000000 ;
+			 InitUpDownTime = -771 ;
+			 MinUpTime =  72.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_57
+
+	 group: UnitBlock_58 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 105.000000 ;
+			 MaxPower = 230.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown =  60.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 474.999909 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 105.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  31.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_58
+
+	 group: UnitBlock_59 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  65.000000 ;
+			 MaxPower = 250.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown =  60.000000 ;
+			 ConstTerm = 315.239105 ;
+			 LinearTerm =  20.548924 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 16877.427811 ;
+			 InitialPower =  65.000000 ;
+			 InitUpDownTime = -93 ;
+			 MinUpTime =   8.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_59
+
+	 group: UnitBlock_60 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  65.000000 ;
+			 MaxPower = 250.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown =  60.000000 ;
+			 ConstTerm = 346.757416 ;
+			 LinearTerm =  20.323841 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 16909.877410 ;
+			 InitialPower =  65.000000 ;
+			 InitUpDownTime = -92 ;
+			 MinUpTime =   8.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_60
+
+	 group: UnitBlock_61 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  65.000000 ;
+			 MaxPower = 250.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown =  60.000000 ;
+			 ConstTerm = 341.841278 ;
+			 LinearTerm =  20.035696 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 16889.563633 ;
+			 InitialPower =  65.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =   8.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_61
+
+	 group: UnitBlock_62 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 120.000000 ;
+			 MaxPower = 250.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown =  60.000000 ;
+			 ConstTerm = 552.825010 ;
+			 LinearTerm =  21.167997 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 13518.839613 ;
+			 InitialPower = 120.000000 ;
+			 InitUpDownTime = -430 ;
+			 MinUpTime =  16.000000 ;
+			 MinDownTime =  16.000000 ;
+		 } // group UnitBlock_62
+
+	 group: UnitBlock_63 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 280.000000 ;
+			 MaxPower = 600.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 150.000000 ;
+			 DeltaRampDown = 210.000000 ;
+			 ConstTerm = 779.700625 ;
+			 LinearTerm =  18.091095 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 63492.793746 ;
+			 InitialPower = 280.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  16.000000 ;
+			 MinDownTime =  16.000000 ;
+		 } // group UnitBlock_63
+
+	 group: UnitBlock_64 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 295.000000 ;
+			 MaxPower = 580.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 150.000000 ;
+			 DeltaRampDown = 210.000000 ;
+			 ConstTerm = 793.870180 ;
+			 LinearTerm =  18.419865 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 63491.832741 ;
+			 InitialPower = 295.000000 ;
+			 InitUpDownTime = -45 ;
+			 MinUpTime =  16.000000 ;
+			 MinDownTime =  16.000000 ;
+		 } // group UnitBlock_64
+
+	 group: UnitBlock_65 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 125.000000 ;
+			 MaxPower = 230.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown =  60.000000 ;
+			 ConstTerm = 276.177551 ;
+			 LinearTerm =  20.031397 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 19249.538656 ;
+			 InitialPower = 125.000000 ;
+			 InitUpDownTime = -92 ;
+			 MinUpTime =   8.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_65
+
+	 group: UnitBlock_66 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 268.000000 ;
+			 MaxPower = 585.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 105.000000 ;
+			 DeltaRampDown = 105.000000 ;
+			 ConstTerm = 778.565430 ;
+			 LinearTerm =  20.067001 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 75391.610151 ;
+			 InitialPower = 268.000000 ;
+			 InitUpDownTime = -195 ;
+			 MinUpTime =   8.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_66
+
+	 group: UnitBlock_67 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 282.000000 ;
+			 MaxPower = 580.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 210.000000 ;
+			 DeltaRampDown = 210.000000 ;
+			 ConstTerm = 780.516600 ;
+			 LinearTerm =  18.248440 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 75241.013507 ;
+			 InitialPower = 282.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =   8.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_67
+
+	 group: UnitBlock_68 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 130.000000 ;
+			 MaxPower = 250.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 120.000000 ;
+			 DeltaRampDown = 120.000000 ;
+			 ConstTerm = 329.464173 ;
+			 LinearTerm =  21.085703 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 13696.055763 ;
+			 InitialPower = 130.000000 ;
+			 InitUpDownTime = -188 ;
+			 MinUpTime =   8.000000 ;
+			 MinDownTime =  20.000000 ;
+		 } // group UnitBlock_68
+
+	 group: UnitBlock_69 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 145.000000 ;
+			 MaxPower = 250.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 120.000000 ;
+			 DeltaRampDown = 120.000000 ;
+			 ConstTerm = 338.595612 ;
+			 LinearTerm =  21.670124 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 13695.816480 ;
+			 InitialPower = 145.000000 ;
+			 InitUpDownTime = -195 ;
+			 MinUpTime =   8.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_69
+
+	 group: UnitBlock_70 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 120.000000 ;
+			 MaxPower = 250.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown =  60.000000 ;
+			 ConstTerm = 325.736389 ;
+			 LinearTerm =  21.812277 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 16646.559946 ;
+			 InitialPower = 120.000000 ;
+			 InitUpDownTime = -184 ;
+			 MinUpTime =   8.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_70
+
+	 group: UnitBlock_71 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 120.000000 ;
+			 MaxPower = 250.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown =  60.000000 ;
+			 ConstTerm = 325.316101 ;
+			 LinearTerm =  21.784140 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 16646.874680 ;
+			 InitialPower = 120.000000 ;
+			 InitUpDownTime = -193 ;
+			 MinUpTime =   8.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_71
+
+	 group: UnitBlock_72 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 200.000000 ;
+			 MaxPower = 685.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 300.000000 ;
+			 DeltaRampDown = 300.000000 ;
+			 ConstTerm = 2022.915525 ;
+			 LinearTerm =  46.255680 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 43600.994565 ;
+			 InitialPower = 200.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =   8.000000 ;
+			 MinDownTime =   5.000000 ;
+		 } // group UnitBlock_72
+
+	 group: UnitBlock_73 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 350.000000 ;
+			 MaxPower = 685.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 300.000000 ;
+			 DeltaRampDown = 300.000000 ;
+			 ConstTerm = 2022.915525 ;
+			 LinearTerm =  46.255680 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 43600.994565 ;
+			 InitialPower = 350.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =   8.000000 ;
+			 MinDownTime =   6.000000 ;
+		 } // group UnitBlock_73
+
+	 group: UnitBlock_74 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 201.000000 ;
+			 MaxPower = 640.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 300.000000 ;
+			 DeltaRampDown = 300.000000 ;
+			 ConstTerm = 1940.597290 ;
+			 LinearTerm =  47.025452 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 44162.690568 ;
+			 InitialPower = 201.000000 ;
+			 InitUpDownTime = -54 ;
+			 MinUpTime =  16.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_74
+
+	 group: UnitBlock_75 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 180.000000 ;
+			 MaxPower = 685.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 300.000000 ;
+			 DeltaRampDown = 300.000000 ;
+			 ConstTerm = 1940.212770 ;
+			 LinearTerm =  47.016121 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 44162.690568 ;
+			 InitialPower = 180.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  16.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_75
+
+	 group: UnitBlock_76 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  76.000000 ;
+			 MaxPower = 218.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 270.000000 ;
+			 DeltaRampDown = 270.000000 ;
+			 ConstTerm = 1903.432495 ;
+			 LinearTerm =  32.992828 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 2580.047120 ;
+			 InitialPower =  76.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =   2.000000 ;
+			 MinDownTime =   4.000000 ;
+		 } // group UnitBlock_76
+
+	 group: UnitBlock_77 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  55.000000 ;
+			 MaxPower = 250.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  90.000000 ;
+			 DeltaRampDown =  90.000000 ;
+			 ConstTerm = 510.697510 ;
+			 LinearTerm =  38.935230 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 15752.785712 ;
+			 InitialPower =  55.000000 ;
+			 InitUpDownTime = -494 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_77
+
+	 group: UnitBlock_78 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  55.000000 ;
+			 MaxPower = 250.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  90.000000 ;
+			 DeltaRampDown =  90.000000 ;
+			 ConstTerm = 510.697510 ;
+			 LinearTerm =  38.935230 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 15752.785712 ;
+			 InitialPower =  55.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_78
+
+	 group: UnitBlock_79 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  55.000000 ;
+			 MaxPower = 250.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  90.000000 ;
+			 DeltaRampDown =  90.000000 ;
+			 ConstTerm = 1859.110230 ;
+			 LinearTerm = 141.737274 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 33439.385696 ;
+			 InitialPower =  55.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   8.000000 ;
+		 } // group UnitBlock_79
+
+	 group: UnitBlock_80 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 175.000000 ;
+			 MaxPower = 600.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 120.000000 ;
+			 DeltaRampDown = 180.000000 ;
+			 ConstTerm = 1514.738770 ;
+			 LinearTerm =  41.354759 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 36952.339899 ;
+			 InitialPower = 175.000000 ;
+			 InitUpDownTime = -241 ;
+			 MinUpTime =  12.000000 ;
+			 MinDownTime =  12.000000 ;
+		 } // group UnitBlock_80
+
+	 group: UnitBlock_81 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 175.000000 ;
+			 MaxPower = 600.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 180.000000 ;
+			 ConstTerm = 1514.738770 ;
+			 LinearTerm =  41.354759 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 36952.339899 ;
+			 InitialPower = 175.000000 ;
+			 InitUpDownTime = -538 ;
+			 MinUpTime =  18.000000 ;
+			 MinDownTime =  12.000000 ;
+		 } // group UnitBlock_81
+
+	 group: UnitBlock_82 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 175.000000 ;
+			 MaxPower = 600.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 180.000000 ;
+			 ConstTerm = 1508.327025 ;
+			 LinearTerm =  42.711990 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 36892.166142 ;
+			 InitialPower = 175.000000 ;
+			 InitUpDownTime = -958 ;
+			 MinUpTime =  12.000000 ;
+			 MinDownTime =  12.000000 ;
+		 } // group UnitBlock_82
+
+	 group: UnitBlock_83 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 175.000000 ;
+			 MaxPower = 600.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 180.000000 ;
+			 ConstTerm = 1507.995850 ;
+			 LinearTerm =  42.702629 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 36892.166142 ;
+			 InitialPower = 175.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  12.000000 ;
+			 MinDownTime =  12.000000 ;
+		 } // group UnitBlock_83
+
+	 group: UnitBlock_84 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 131.000000 ;
+			 MaxPower = 185.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 360.000000 ;
+			 DeltaRampDown = 360.000000 ;
+			 ConstTerm = 3516.656980 ;
+			 LinearTerm =  58.924347 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 3400.070070 ;
+			 InitialPower = 131.000000 ;
+			 InitUpDownTime = -595 ;
+			 MinUpTime =   2.000000 ;
+			 MinDownTime =   1.000000 ;
+		 } // group UnitBlock_84
+
+	 group: UnitBlock_85 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 131.000000 ;
+			 MaxPower = 185.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 360.000000 ;
+			 DeltaRampDown = 360.000000 ;
+			 ConstTerm = 3280.041015 ;
+			 LinearTerm =  54.959671 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 3400.070070 ;
+			 InitialPower = 131.000000 ;
+			 InitUpDownTime = -595 ;
+			 MinUpTime =   2.000000 ;
+			 MinDownTime =   1.000000 ;
+		 } // group UnitBlock_85
+
+	 group: UnitBlock_86 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 127.000000 ;
+			 MaxPower = 194.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 360.000000 ;
+			 DeltaRampDown = 360.000000 ;
+			 ConstTerm = 3457.614015 ;
+			 LinearTerm =  57.935070 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 3400.070070 ;
+			 InitialPower = 127.000000 ;
+			 InitUpDownTime = -879 ;
+			 MinUpTime =   2.000000 ;
+			 MinDownTime =   1.000000 ;
+		 } // group UnitBlock_86
+
+	 group: UnitBlock_87 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 420.000000 ;
+			 MaxPower = 1156.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 930.000000 ;
+			 DeltaRampDown = 930.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  22.299984 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 420.000000 ;
+			 InitUpDownTime = -193 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   4.000000 ;
+		 } // group UnitBlock_87
+
+	 group: UnitBlock_88 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 366.000000 ;
+			 MaxPower = 583.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 930.000000 ;
+			 DeltaRampDown = 930.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  22.299984 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 366.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   6.000000 ;
+		 } // group UnitBlock_88
+
+	 group: UnitBlock_89 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 115.000000 ;
+			 MaxPower = 226.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 930.000000 ;
+			 DeltaRampDown = 930.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  22.299984 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 115.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   6.000000 ;
+		 } // group UnitBlock_89
+
+	 group: UnitBlock_90 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 363.000000 ;
+			 MaxPower = 1163.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 930.000000 ;
+			 DeltaRampDown = 930.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  22.299984 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 363.000000 ;
+			 InitUpDownTime = -113 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   6.000000 ;
+		 } // group UnitBlock_90
+
+	 group: UnitBlock_91 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 145.000000 ;
+			 MaxPower = 290.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  45.000000 ;
+			 DeltaRampDown =  45.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  22.094984 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 171.000000 ;
+			 InitUpDownTime = 9 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   6.000000 ;
+		 } // group UnitBlock_91
+
+	 group: UnitBlock_92 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 419.000000 ;
+			 MaxPower = 592.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 150.000000 ;
+			 DeltaRampDown = 150.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  22.384996 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 419.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   6.000000 ;
+		 } // group UnitBlock_92
+
+	 group: UnitBlock_93 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 145.000000 ;
+			 MaxPower = 240.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  45.000000 ;
+			 DeltaRampDown =  45.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  21.964989 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 145.000000 ;
+			 InitUpDownTime = -673 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   6.000000 ;
+		 } // group UnitBlock_93
+
+	 group: UnitBlock_94 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 159.999969 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_94
+
+	 group: UnitBlock_95 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 160.500000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_95
+
+	 group: UnitBlock_96 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.500015 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_96
+
+	 group: UnitBlock_97 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.500015 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_97
+
+	 group: UnitBlock_98 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.500015 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_98
+
+	 group: UnitBlock_99 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.500015 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_99
+
+	 group: UnitBlock_100 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.500015 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_100
+
+	 group: UnitBlock_101 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.500015 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_101
+
+	 group: UnitBlock_102 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.500015 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_102
+
+	 group: UnitBlock_103 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  59.730004 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_103
+
+	 group: UnitBlock_104 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  59.730004 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_104
+
+	 group: UnitBlock_105 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  59.730004 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_105
+
+	 group: UnitBlock_106 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  59.730004 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_106
+
+	 group: UnitBlock_107 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  10.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm =  59.730004 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  10.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_107
+
+	 group: UnitBlock_108 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  74.000000 ;
+			 MaxPower = 125.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 300.000000 ;
+			 DeltaRampDown = 300.000000 ;
+			 ConstTerm = 2602.905760 ;
+			 LinearTerm =  67.321472 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 3400.070070 ;
+			 InitialPower =  74.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =   1.000000 ;
+			 MinDownTime =   1.000000 ;
+		 } // group UnitBlock_108
+
+	 group: UnitBlock_109 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  65.000000 ;
+			 MaxPower = 129.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 300.000000 ;
+			 DeltaRampDown = 300.000000 ;
+			 ConstTerm = 2429.405030 ;
+			 LinearTerm =  67.268783 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 3400.070070 ;
+			 InitialPower =  65.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =   1.000000 ;
+			 MinDownTime =   1.000000 ;
+		 } // group UnitBlock_109
+
+	 group: UnitBlock_110 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  40.000000 ;
+			 MaxPower =  70.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 210.000000 ;
+			 DeltaRampDown = 210.000000 ;
+			 ConstTerm = 2050.533445 ;
+			 LinearTerm =  66.191665 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  40.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =   1.000000 ;
+			 MinDownTime =   1.000000 ;
+		 } // group UnitBlock_110
+
+	 group: UnitBlock_111 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  40.000000 ;
+			 MaxPower =  70.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 210.000000 ;
+			 DeltaRampDown = 210.000000 ;
+			 ConstTerm = 2071.147950 ;
+			 LinearTerm =  66.857132 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  40.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =   1.000000 ;
+			 MinDownTime =   1.000000 ;
+		 } // group UnitBlock_111
+
+	 group: UnitBlock_112 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  90.000000 ;
+			 MaxPower = 125.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 300.000000 ;
+			 DeltaRampDown = 300.000000 ;
+			 ConstTerm = 2315.102050 ;
+			 LinearTerm =  65.865486 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost = 3400.070070 ;
+			 InitialPower =  90.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =   1.000000 ;
+			 MinDownTime =   1.000000 ;
+		 } // group UnitBlock_112
+
+	 group: UnitBlock_113 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  40.000000 ;
+			 MaxPower =  70.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 210.000000 ;
+			 DeltaRampDown = 210.000000 ;
+			 ConstTerm = 2146.467775 ;
+			 LinearTerm =  67.981110 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  40.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =   1.000000 ;
+			 MinDownTime =   1.000000 ;
+		 } // group UnitBlock_113
+
+	 group: UnitBlock_114 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  39.000000 ;
+			 MaxPower =  70.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 210.000000 ;
+			 DeltaRampDown = 210.000000 ;
+			 ConstTerm = 2241.557860 ;
+			 LinearTerm =  70.992752 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  39.000000 ;
+			 InitUpDownTime = -885 ;
+			 MinUpTime =   1.000000 ;
+			 MinDownTime =   1.000000 ;
+		 } // group UnitBlock_114
+
+	 group: UnitBlock_115 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 130.000000 ;
+			 MaxPower = 233.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 900.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =  58.249981 ;
+			 LinearTerm =   2.249999 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 130.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  72.000000 ;
+			 MinDownTime =  47.000000 ;
+		 } // group UnitBlock_115
+
+	 group: UnitBlock_116 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =  23.000000 ;
+			 MaxPower = 115.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 150.000000 ;
+			 DeltaRampDown = 150.000000 ;
+			 ConstTerm = 306.666626 ;
+			 LinearTerm =  36.833340 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =  23.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  12.000000 ;
+			 MinDownTime =  12.000000 ;
+		 } // group UnitBlock_116
+
+	 group: UnitBlock_117 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =   1.000000 ;
+			 MaxPower =  60.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  60.000000 ;
+			 DeltaRampDown =  60.000000 ;
+			 ConstTerm = -2024.024535 ;
+			 LinearTerm = 123.113739 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =   1.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =   1.000000 ;
+			 MinDownTime =   1.000000 ;
+		 } // group UnitBlock_117
+
+	 group: UnitBlock_118 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 120.000000 ;
+			 MaxPower = 240.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  45.000000 ;
+			 DeltaRampDown =  45.000000 ;
+			 ConstTerm = 218.437439 ;
+			 LinearTerm =  14.174163 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 120.000000 ;
+			 InitUpDownTime = -4 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   4.000000 ;
+		 } // group UnitBlock_118
+
+	 group: UnitBlock_119 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =   0.000000 ;
+			 MaxPower =   0.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  30.000000 ;
+			 DeltaRampDown =  30.000000 ;
+			 ConstTerm = 218.437439 ;
+			 LinearTerm =  14.174163 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =   0.000000 ;
+			 InitUpDownTime = -4 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   4.000000 ;
+		 } // group UnitBlock_119
+
+	 group: UnitBlock_120 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =   0.000000 ;
+			 MaxPower =   0.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  30.000000 ;
+			 DeltaRampDown =  30.000000 ;
+			 ConstTerm = 218.437439 ;
+			 LinearTerm =  14.174163 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =   0.000000 ;
+			 InitUpDownTime = -4 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   4.000000 ;
+		 } // group UnitBlock_120
+
+	 group: UnitBlock_121 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 141.500015 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 243.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_121
+
+	 group: UnitBlock_122 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 141.000000 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_122
+
+	 group: UnitBlock_123 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 150.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 140.499985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 731.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_123
+
+	 group: UnitBlock_124 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 150.000000 ;
+			 DeltaRampDown = 900.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 140.000031 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_124
+
+	 group: UnitBlock_125 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower =   0.000000 ;
+			 MaxPower =   0.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp =  30.000000 ;
+			 DeltaRampDown =  30.000000 ;
+			 ConstTerm = 218.437439 ;
+			 LinearTerm =  14.174163 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower =   0.000000 ;
+			 InitUpDownTime = -4 ;
+			 MinUpTime =  10.000000 ;
+			 MinDownTime =   4.000000 ;
+		 } // group UnitBlock_125
+
+	 group: UnitBlock_126 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_126
+
+	 group: UnitBlock_127 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_127
+
+	 group: UnitBlock_128 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_128
+
+	 group: UnitBlock_129 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_129
+
+	 group: UnitBlock_130 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = 191 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_130
+
+	 group: UnitBlock_131 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_131
+
+	 group: UnitBlock_132 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_132
+
+	 group: UnitBlock_133 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_133
+
+	 group: UnitBlock_134 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 208.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_134
+
+	 group: UnitBlock_135 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_135
+
+	 group: UnitBlock_136 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_136
+
+	 group: UnitBlock_137 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_137
+
+	 group: UnitBlock_138 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 444.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_138
+
+	 group: UnitBlock_139 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_139
+
+	 group: UnitBlock_140 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_140
+
+	 group: UnitBlock_141 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_141
+
+	 group: UnitBlock_142 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_142
+
+	 group: UnitBlock_143 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_143
+
+	 group: UnitBlock_144 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_144
+
+	 group: UnitBlock_145 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 256.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_145
+
+	 group: UnitBlock_146 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = -960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_146
+
+	 group: UnitBlock_147 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_147
+
+	 group: UnitBlock_148 {
+		 variables:
+				double MinPower ;
+				double MaxPower ;
+				double FixedConsumption;
+				double DeltaRampUp ;
+				double DeltaRampDown ;
+				double QuadTerm ;
+				double StartUpCost ;
+				double LinearTerm ;
+				double ConstTerm ;
+				double InitialPower ;
+				int64 InitUpDownTime ;
+				uint64 MinUpTime ;
+				uint64 MinDownTime ;
+
+		 // group attributes:
+				:type = "ThermalUnitBlock" ;
+		 data:
+			 MinPower = 160.000000 ;
+			 MaxPower = 1999.000000 ;
+			 FixedConsumption =   0.000000 ;
+			 DeltaRampUp = 180.000000 ;
+			 DeltaRampDown = 450.000000 ;
+			 ConstTerm =   0.000000 ;
+			 LinearTerm = 144.999985 ;
+			 QuadTerm =   0.000000 ;
+			 StartUpCost =   0.000000 ;
+			 InitialPower = 160.000000 ;
+			 InitUpDownTime = 960 ;
+			 MinUpTime =  48.000000 ;
+			 MinDownTime =  48.000000 ;
+		 } // group UnitBlock_148
+
+	 group: UnitBlock_149 {
+		 // The ARRENS valley
+		 dimensions:
+			 NumberReservoirs=6;
+			 NumberArcs=6;
+			 NumberIntervals = 96;
+			 TotalNumberPieces=19;
+
+		 variables:
+			 int StartArc(NumberArcs);
+			 int EndArc(NumberArcs);
+
+			 double Inflows(NumberReservoirs,NumberIntervals);
+			 double InitialVolumetric(NumberReservoirs);
+			 double MinVolumetric(NumberReservoirs,NumberIntervals);
+			 double MaxVolumetric(NumberReservoirs,NumberIntervals);
+
+			 int UphillFlow(NumberArcs);
+			 int DownhillFlow(NumberArcs);
+			 int InitialFlowRate(NumberArcs);
+			 double DeltaRampUp(NumberIntervals,NumberArcs);
+			 double DeltaRampDown(NumberIntervals,NumberArcs);
+			 double MinFlow(NumberIntervals,NumberArcs);
+			 double MaxFlow(NumberIntervals,NumberArcs);
+			 double MinPower(NumberIntervals,NumberArcs);
+			 double MaxPower(NumberIntervals,NumberArcs);
+			 int NumberPieces(NumberArcs);
+
+			 double LinearTerm(TotalNumberPieces);
+			 double ConstantTerm(TotalNumberPieces);
+		 // group attributes:
+				 :type = "HydroUnitBlock" ;
+		 data:
+			 StartArc = 0,1,2,3,4,5 ;
+			 EndArc = 1,2,3,4,5,6 ;
+
+			 Inflows=
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,900,
+				540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,540,
+				180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,180,
+				540,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,360,
+				720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720,720;
+			 InitialVolumetric=14572000.000000,0.000000,348000.000000,0.000000,179.999973,0.000000;
+			 MinVolumetric=
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
+			 MaxVolumetric=
+				17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,17100000,
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+				952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,952000,
+				1.8e-06,3.6e-06,5.4e-06,7.2e-06,9e-06,1.08e-05,1.26e-05,1.44e-05,1.62e-05,1.8e-05,1.98e-05,2.16e-05,2.34e-05,2.52e-05,2.7e-05,2.88e-05,3.06e-05,3.24e-05,3.42e-05,3.6e-05,3.78e-05,3.96e-05,4.14e-05,4.32e-05,4.5e-05,4.68e-05,4.86e-05,5.04e-05,5.22e-05,5.4e-05,5.58e-05,5.76e-05,5.94e-05,6.12e-05,6.3e-05,6.48e-05,6.66e-05,6.84e-05,7.02e-05,7.2e-05,7.38e-05,7.56e-05,7.74e-05,7.92e-05,8.1e-05,8.28e-05,8.46e-05,8.64e-05,8.82e-05,9e-05,9.18e-05,9.36e-05,9.54e-05,9.72e-05,9.9e-05,0.0001008,0.0001026,0.0001044,0.0001062,0.000108,0.0001098,0.0001116,0.0001134,0.0001152,0.000117,0.0001188,0.0001206,0.0001224,0.0001242,0.000126,0.0001278,0.0001296,0.0001314,0.0001332,0.000135,0.0001368,0.0001386,0.0001404,0.0001422,0.000144,0.0001458,0.0001476,0.0001494,0.0001512,0.000153,0.0001548,0.0001566,0.0001584,0.0001602,0.000162,0.0001638,0.0001656,0.0001674,0.0001692,0.000171,0.0001728,
+				180,0,5.4e-06,1.08e-05,1.62e-05,2.16e-05,2.7e-05,3.24e-05,3.78e-05,4.32e-05,4.86e-05,5.4e-05,5.94e-05,6.48e-05,7.02e-05,7.56e-05,8.1e-05,8.64e-05,9.18e-05,9.72e-05,0.0001026,0.000108,0.0001134,0.0001188,0.0001242,0.0001296,0.000135,0.0001404,0.0001458,0.0001512,0.0001566,0.000162,0.0001674,0.0001728,0.0001782,0.0001836,0.000189,0.0001944,0.0001998,0.0002052,0.0002106,0.000216,0.0002214,0.0002268,0.0002322,0.0002376,0.000243,0.0002484,0.0002538,0.0002592,0.0002646,0.00027,0.0002754,0.0002808,0.0002862,0.0002916,0.000297,0.0003024,0.0003078,0.0003132,0.0003186,0.000324,0.0003294,0.0003348,0.0003402,0.0003456,0.000351,0.0003564,0.0003618,0.0003672,0.0003726,0.000378,0.0003834,0.0003888,0.0003942,0.0003996,0.000405,0.0004104,0.0004158,0.0004212,0.0004266,0.000432,0.0004374,0.0004428,0.0004482,0.0004536,0.000459,0.0004644,0.0004698,0.0004752,0.0004806,0.000486,0.0004914,0.0004968,0.0005022,0.0005076,
+				1.08e-05,2.16e-05,3.24e-05,4.32e-05,5.4e-05,6.48e-05,7.56e-05,8.64e-05,9.72e-05,0.000108,0.0001188,0.0001296,0.0001404,0.0001512,0.000162,0.0001728,0.0001836,0.0001944,0.0002052,0.000216,0.0002268,0.0002376,0.0002484,0.0002592,0.00027,0.0002808,0.0002916,0.0003024,0.0003132,0.000324,0.0003348,0.0003456,0.0003564,0.0003672,0.000378,0.0003888,0.0003996,0.0004104,0.0004212,0.000432,0.0004428,0.0004536,0.0004644,0.0004752,0.000486,0.0004968,0.0005076,0.0005184,0.0005292,0.00054,0.0005508,0.0005616,0.0005724,0.0005832,0.000594,0.0006048,0.0006156,0.0006264,0.0006372,0.000648,0.0006588,0.0006696,0.0006804,0.0006912,0.000702,0.0007128,0.0007236,0.0007344,0.0007452,0.000756,0.0007668,0.0007776,0.0007884,0.0007992,0.00081,0.0008208,0.0008316,0.0008424,0.0008532,0.000864,0.0008748,0.0008856,0.0008964,0.0009072,0.000918,0.0009288,0.0009396,0.0009504,0.0009612,0.000972,0.0009828,0.0009936,0.0010044,0.0010152,0.001026,0.0010368;
+
+			 UphillFlow = 0,0,0,0,0,0 ;
+			 DownhillFlow = 0,0,0,2,0,0 ;
+			 InitialFlowRate = 0,900,0,180,540.00002,1260 ;
+			 DeltaRampUp = 
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200 ;
+			 DeltaRampDown = 
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200,
+				179998200,179998200,179998200,179998200,179998200,179998200 ;
+			 MinFlow=0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000,0.000000,0.000000,0.000000,0.000000,0.000000,1260.000000;
+			 MaxFlow=8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000,8640.000324,16200000.000000,18900.000000,16200000.000000,16200000.000000,16200000.000000;
+			 MinPower=0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000,0.000000;
+			 MaxPower=30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000,30.000000,11.000000,24.000000,6.000000,19.000000,21.000000;
+			 NumberPieces=3,2,3,3,3,5;
+
+			 LinearTerm=0.0034722,0.0034722,0.0034722,0.0010185,0,0.0014337,0.0013889,0.0010582,0.00027778,0.00027778,0,0.00087963,0.00087963,0,0.00083333,0.00083333,0.00083333,0.00083333,0;
+			 ConstantTerm=0,0,1.5e-06,0,11,0,0.25,4,0,0,6,0,0,19,0,0,0,0,21;
+
+		 } // group UnitBlock_149
+
+} // group Block_0
+}
+

@@ -8,7 +8,8 @@ def build_model(
     Fplus_min_dict, Fplus_max_dict, gplus_dict, Pplus_max_dict, Pplus_min_dict,
     Fminus_min_dict, Fminus_max_dict, gminus_dict, rho_pump_dict,
     f_breakpoints_dict, P_breakpoints_dict,
-    Vmin_dict, Vmax_dict, inflow_dict, V0_dict
+    Vmin_dict, Vmax_dict, inflow_dict, V0_dict,
+    arc_start_dict, arc_end_dict,
 ):
 
     m = pyo.ConcreteModel()
@@ -52,15 +53,18 @@ def build_model(
     m.g = pyo.Param(m.L, m.T, initialize=g_dict)
 
     # Turbine (on each link k)
-    m.Fplus_min = pyo.Param(m.K, m.T, initialize=Fplus_min_dict)
-    m.Fplus_max = pyo.Param(m.K, m.T, initialize=Fplus_max_dict)
+    # Note: use lambda initializers for time-indexed hydro params so that Pyomo
+    # only looks up valid (k, t) in m.K × m.T, even when the supplied dicts
+    # contain more time steps than T (e.g. hydro file has T=96, thermal T=24).
+    m.Fplus_min = pyo.Param(m.K, m.T, initialize=lambda m, k, t: Fplus_min_dict[k, t])
+    m.Fplus_max = pyo.Param(m.K, m.T, initialize=lambda m, k, t: Fplus_max_dict[k, t])
     m.gplus = pyo.Param(m.K, initialize=gplus_dict)
     m.Pplus_max = pyo.Param(m.K, initialize=Pplus_max_dict)
     m.Pplus_min = pyo.Param(m.K, initialize=Pplus_min_dict)
 
     # Pump (on each link k, pumping from k+1 -> k)
-    m.Fminus_min = pyo.Param(m.K, m.T, initialize=Fminus_min_dict)
-    m.Fminus_max = pyo.Param(m.K, m.T, initialize=Fminus_max_dict)
+    m.Fminus_min = pyo.Param(m.K, m.T, initialize=lambda m, k, t: Fminus_min_dict[k, t])
+    m.Fminus_max = pyo.Param(m.K, m.T, initialize=lambda m, k, t: Fminus_max_dict[k, t])
     m.gminus = pyo.Param(m.K, initialize=gminus_dict)
     m.rho_pump = pyo.Param(m.K, initialize=rho_pump_dict)
 
@@ -72,7 +76,7 @@ def build_model(
     # Reservoir parameters (per reservoir r)
     m.Vmin = pyo.Param(m.R, initialize=Vmin_dict)
     m.Vmax = pyo.Param(m.R, initialize=Vmax_dict)
-    m.inflow = pyo.Param(m.R, m.T, initialize=inflow_dict)
+    m.inflow = pyo.Param(m.R, m.T, initialize=lambda m, r, t: inflow_dict[r, t])
     m.V0 = pyo.Param(m.R, initialize=V0_dict)
 
     # =========================================================
@@ -241,27 +245,39 @@ def build_model(
     m.power_piece = pyo.Constraint(m.K, m.T, rule=power_piece_rule)
 
     # =========================================================
-    # Water balance for cascade chain
-    # Reservoir r: receives turbine flow from r-1 and sends to r;
-    # pumping is opposite direction.
-    # Links are k=1..R-1 between k (up) and k+1 (down).
+    # Water balance — general DAG topology
+    # arc_start_dict[k] = upstream reservoir of arc k (1-indexed)
+    # arc_end_dict[k]   = downstream reservoir of arc k (1-indexed)
+    #
+    # For reservoir r at time t:
+    #   V[r,t+1] = V[r,t] + inflow[r,t]*dt
+    #     + sum(fplus[k,t]  for k where arc_end[k]==r)   *dt  (turbine arrives at r)
+    #     - sum(fplus[k,t]  for k where arc_start[k]==r) *dt  (turbine leaves r)
+    #     - sum(fminus[k,t] for k where arc_end[k]==r)   *dt  (pump takes water from r)
+    #     + sum(fminus[k,t] for k where arc_start[k]==r) *dt  (pump returns water to r)
+    #
+    # sum([]) = 0 → handles source/sink nodes without extra guards.
     # =========================================================
+
+    # Precompute adjacency lists (Python dicts, not Pyomo Params — faster in rules)
+    arcs_ending_at:   dict = {r: [] for r in range(1, R + 1)}
+    arcs_starting_at: dict = {r: [] for r in range(1, R + 1)}
+    for k in K_list:
+        arcs_ending_at[arc_end_dict[k]].append(k)
+        arcs_starting_at[arc_start_dict[k]].append(k)
+
     def vol_balance_rule(m, r, t):
         if t == m.T.last():
             return pyo.Constraint.Skip
-        dt = m.dt
-
-        # Turbine flows (k -> k+1)
-        inflow_from_up_turb = m.fplus[r - 1, t] * dt if r >= 2 else 0
-        outflow_to_down_turb = m.fplus[r, t] * dt if r <= (m.R.last() - 1) else 0
-
-        # Pump flows (k+1 -> k)
-        outflow_to_up_pump = m.fminus[r - 1, t] * dt if r >= 2 else 0
-        inflow_from_down_pump = m.fminus[r, t] * dt if r <= (m.R.last() - 1) else 0
-
-        return m.V[r, t + 1] == m.V[r, t] + m.inflow[r, t] * dt \
-            + inflow_from_up_turb - outflow_to_down_turb \
-            - outflow_to_up_pump + inflow_from_down_pump
+        return (
+            m.V[r, t + 1]
+            == m.V[r, t]
+            + m.inflow[r, t] * m.dt
+            + sum(m.fplus[k, t]  for k in arcs_ending_at[r])   * m.dt
+            - sum(m.fplus[k, t]  for k in arcs_starting_at[r]) * m.dt
+            - sum(m.fminus[k, t] for k in arcs_ending_at[r])   * m.dt
+            + sum(m.fminus[k, t] for k in arcs_starting_at[r]) * m.dt
+        )
 
     m.vol_balance = pyo.Constraint(m.R, m.T, rule=vol_balance_rule)
 

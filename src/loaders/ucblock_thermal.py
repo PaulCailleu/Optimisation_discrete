@@ -65,6 +65,11 @@ def load_ucblock_thermal(path: str, block: str = "Block_0") -> ThermalUCData:
     # --- units: UnitBlock_0 ... UnitBlock_{U-1} ---
     unit_groups = [g for g in root.groups.keys() if g.startswith("UnitBlock_")]
     unit_groups_sorted = sorted(unit_groups, key=lambda s: int(s.split("_")[-1]))
+    # Skip non-thermal blocks (e.g. HydroUnitBlock in pHydro files)
+    unit_groups_sorted = [
+        g for g in unit_groups_sorted
+        if getattr(root.groups[g], "type", "ThermalUnitBlock") == "ThermalUnitBlock"
+    ]
     if not unit_groups_sorted:
         raise ValueError(f"No UnitBlock_i groups found under {block}/")
 
