@@ -48,9 +48,8 @@
 \contentsline {paragraph}{R2 (transit, bleu clair) — nœud de passage.}{13}{figure.caption.8}%
 \contentsline {paragraph}{R3 (rouge) et R4 (rose) — réservoirs intermédiaires stables.}{13}{figure.caption.8}%
 \contentsline {paragraph}{R5 (aval, vert) — dynamique de remplissage en cours de journée.}{13}{figure.caption.8}%
-\contentsline {subsection}{\numberline {3.4}Bilan comparatif et limites}{14}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.4}Bilan comparatif}{14}{subsection.3.4}%
 \contentsline {paragraph}{Comparaison avec le scénario 1.}{14}{subsection.3.4}%
-\contentsline {paragraph}{Limites.}{14}{table.caption.9}%
 \contentsline {section}{\numberline {4}Scénario 3 : grande cascade STEP \texttt {pHydro\_3}}{15}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Instance testée}{15}{subsection.4.1}%
 \contentsline {paragraph}{Thermique — \texttt {20\_0\_4\_w.nc4}.}{15}{subsection.4.1}%
@@ -68,3 +67,4 @@
 \contentsline {paragraph}{R5 (vert, aval) — dynamique en cloche.}{18}{figure.caption.13}%
 \contentsline {subsection}{\numberline {4.4}Bilan comparatif des trois scénarios}{18}{subsection.4.4}%
 \contentsline {section}{Conclusion}{19}{table.caption.14}%
+\contentsline {paragraph}{\textbf {Références et code :} \href {https://github.com/PaulCailleu/Optimisation_discrete}{$github.com/PaulCailleu/Optimisation\_discrete$}}{19}{table.caption.14}%

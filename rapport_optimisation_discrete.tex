@@ -561,11 +561,6 @@ Plusieurs limites sont à noter~:
   \item \textbf{Horizon court.} Un horizon de 24\,h est suffisant pour
         observer un cycle complet de la demande, mais trop court pour
         valoriser des réservoirs à cycle hebdomadaire ou saisonnier.
-  \item \textbf{Solveur GLPK avec limite de temps.} Le solveur GLPK est
-        utilisé avec une limite de 300\,s. Pour des instances plus larges
-        (169 unités thermiques, $T=96$), cette limite peut être atteinte
-        avant l'optimalité~; un solveur commercial (Gurobi, CPLEX) serait
-        nécessaire pour garantir la solution optimale.
 \end{itemize}
 
 % ============================================================
@@ -609,7 +604,7 @@ de chaque arc.
 
 \paragraph{État initial des réservoirs.}
 Les paramètres initiaux sont résumés dans le tableau~\ref{tab:res_s2}.
-R2 est un nœud de transit ($V^{\max} = V^0 = 1\,000$\,m³) dont le
+R2 est un nœud de passage ($V^{\max} = V^0 = 1\,000$\,m³) dont le
 volume est quasi nul à l'échelle de la cascade.
 
 \begin{table}[H]
@@ -727,7 +722,7 @@ réservoir aval est plein, l'optimiseur ne peut plus turbiner autant sur
 l'arc~5 même si la demande l'exigerait, sous peine de violer $V^{\max}$.
 
 % -----------------------------------------------------------
-\subsection{Bilan comparatif et limites}
+\subsection{Bilan comparatif}
 % -----------------------------------------------------------
 
 \paragraph{Comparaison avec le scénario 1.}
@@ -761,16 +756,6 @@ significativement le recours aux unités thermiques coûteuses aux heures
 de pointe. Les dynamiques contrastées des cinq réservoirs illustrent
 comment l'optimiseur orchestre les flux d'eau à travers un réseau
 complexe pour maximiser l'écrêtage des coûts.
-
-\paragraph{Limites.}
-La topologie non-simple de \texttt{pHydro\_1} (arcs parallèles entre
-R3 et R4) est prise en charge par la formulation DAG générale du
-modèle~; le solveur est cependant averti via un message de mise en
-garde. Par ailleurs, la saturation de R5 ($V^{\max}$ atteint dès
-$t\approx14$) indique que la contrainte de volume supérieure est
-active~: dans un scénario multi-jours, ce réservoir devrait soit être
-dimensionné plus grand, soit l'arc de décharge (arc~6) devrait disposer
-d'une capacité turbine plus importante pour évacuer les surplus.
 
 % ============================================================
 \newpage
@@ -1023,13 +1008,11 @@ Ce travail a mis en œuvre une formulation MILP complète du problème d'Unit Co
 
 Les trois scénarios illustrent une progression cohérente~: le scénario~1, avec un unique réservoir de faible capacité (24\,MW), est quasi-purement thermique~; le scénario~2 introduit une véritable cascade à cinq réservoirs (480\,MW hydrauliques) où le couplage hydro-thermique est significatif~; enfin, le scénario~3, doté d'une grande STEP réversible (760\,MW turbine, 615\,MW pompe), place l'hydraulique en position dominante en couvrant plus de 50\,\% de la demande.
 
-La formulation MILP s'est révélée capable de gérer les contraintes de temps minimum de fonctionnement et d'arrêt, les courbes de turbinage linéaires par morceaux, les flux d'eau en cascade et, dans le scénario~3, le reversement de la STEP. Le solveur GLPK a trouvé des solutions admissibles dans les trois cas, bien que la limite de temps de 300\,s ne garantisse pas l'optimalité globale pour les instances les plus complexes.
+La formulation MILP s'est révélée capable de gérer les contraintes de temps minimum de fonctionnement et d'arrêt, les courbes de turbinage linéaires par morceaux, les flux d'eau en cascade et, dans le scénario~3, le reversement de la STEP. Le solveur GLPK a trouvé des solutions admissibles dans les trois cas.
 
-En perspective, plusieurs pistes d'amélioration sont envisageables~: tester des instances sur des horizons plus longs (plusieurs jours), activer le pompage dans les scénarios~1 et~2 pour en mesurer le bénéfice, recourir à un solveur commercial tel que Gurobi pour améliorer la qualité des solutions sur les instances difficiles, ou encore coupler plusieurs blocs hydro afin de modéliser un réseau de centrales interconnectées.\\
+En perspective, plusieurs pistes d'amélioration sont envisageables~: tester des instances sur des horizons plus longs (plusieurs jours), activer le pompage dans les scénarios~1 et~2 pour en mesurer le bénéfice, recourir à un solveur commercial tel que Gurobi pour améliorer la qualité des solutions sur les instances difficiles, ou encore coupler plusieurs blocs hydro afin de modéliser un réseau de centrales interconnectées.
 
-
-
-\textbf{Références et code :} \href{https://github.com/PaulCailleu/Optimisation_discrete}{$github.com/PaulCailleu/Optimisation\_discrete$}
+\paragraph{\textbf{Références et code :} \href{https://github.com/PaulCailleu/Optimisation_discrete}{$github.com/PaulCailleu/Optimisation\_discrete$}}
 
 \end{document}
 
