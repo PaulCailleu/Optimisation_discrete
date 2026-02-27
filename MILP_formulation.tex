@@ -17,6 +17,7 @@
 \usepackage{subcaption}
 \usepackage{csquotes}
 \usepackage{booktabs}
+\usepackage{multirow}
 \usepackage{mdframed}
 
 
@@ -81,13 +82,31 @@
 
 \newpage
 
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
 
+La gestion optimale d'un parc de production électrique est un problème central en ingénierie
+des systèmes énergétiques. Il s'agit de décider à chaque instant d'allumer ou d'éteindre un système et de réguler la puissance pour optimiser le coût de production du parc. On imagine rapidement la complexité que cela représente à l'échelle d'un réseau national interconnecté avec les pays frontaliers. Le système devient de nos jours d'autant plus complexe que de petits producteurs intermittents viennent se brancher sur le réseau.
+
+Ce projet porte sur la formulation et la résolution d'un problème UC couplant un parc de centrales
+thermiques à un réseau hydraulique en cascade. Les centrales thermiques sont soumises à
+des contraintes de bornes de puissance, de rampes, de durées minimales de marche et
+d'arrêt, ainsi qu'à des coûts de démarrage. Le système hydraulique est modélisé comme
+un graphe orienté acyclique de réservoirs reliés par des turbines et des pompes, dont la
+relation débit--puissance est non linéaire et approchée par une linéarisation par morceaux.
+
+L'objectif est de minimiser le coût total de production sur un horizon de planification $T$, sous l'ensemble des contraintes
+physiques et du bilan offre--demande. Le problème est formulé comme un programme
+mixte en nombres entiers (MILP, \textit{Mixed Integer Linear Program}), ce qui
+permet d'utiliser des solveurs de référence tels que CPLEX, Gurobi ou HiGHS.
+
+\newpage
 
 \section{Formulation MILP UC hydro-thermique}
 
 Le problème de \textit{Unit Commitment} (UC) consiste à décider, à chaque
-pas de temps, quelles unités de production sont en marche (\emph{commitment})
-et à quelle puissance elles fonctionnent (\emph{dispatch}), de façon à
+pas de temps, quelles unités de production sont en marche
+et à quelle puissance elles fonctionnent, de façon à
 satisfaire la demande au coût minimum tout en respectant les contraintes
 techniques (rampes, durées minimales de marche/arrêt, bilans hydrauliques).
 La formulation est un programme mixte en nombres entiers (MILP) couplant
@@ -165,7 +184,7 @@ un parc thermique et une cascade hydraulique.
 \subsection{Objectif}
 % -----------------------------------------------------------------------
 
-On minimise le coût total de production sur l'horizon~:
+On minimise le coût total de production pendant la période étudiée~:
 \[
 \min \underbrace{\sum_{t\in\mathcal{T}}\sum_{l\in\mathcal{L}}
       c_{l,t}\, p_{l,t}\, dt}_{\text{coût variable de fonctionnement}}
@@ -262,7 +281,7 @@ puissance produite est non linéaire (rendement variable avec la hauteur de
 chute). On l'approche par une fonction linéaire par morceaux à $S$ segments,
 définie par $S+1$ points de rupture $(f_{k,i},\, P_{k,i})$.
 
-La technique SOS-2 (\textit{Special Ordered Set}) sélectionne un unique
+On sélectionne un unique
 segment actif $s$ via la variable $z_{k,s,t}$, puis interpole
 linéairement à l'intérieur de ce segment via $\theta_{k,s,t}$~:
 \begin{align}
@@ -284,7 +303,7 @@ le même segment~: la courbe $P(\!f)$ est ainsi respectée de façon exacte
 sur chaque morceau.
 
 % -----------------------------------------------------------------------
-\subsection{Bilan volumétrique des réservoirs (topologie DAG générale)}
+\subsection{Bilan volumétrique des réservoirs}
 % -----------------------------------------------------------------------
 
 On définit pour chaque réservoir $r$ les ensembles d'arcs incidents~:
@@ -352,6 +371,665 @@ MW sur l'arc $k$ pour refouler du débit $f^-_{k,t}$ en amont.
 
 
 
-Lien du repo github : \href{https://github.com/PaulCailleu/Optimisation_discrete}{$github.com/PaulCailleu/Optimisation\_discrete$}
+% ============================================================
+\newpage
+\section{Analyse des résultats numériques}
+% ============================================================
+
+\subsection{Instance testée}
+
+Les simulations ont été réalisées sur deux jeux de données issus de la base
+SMSpp/UCBlock.
+
+\paragraph{Thermique — \texttt{20\_0\_3\_w.nc4}.}
+Ce fichier décrit un parc de $|\mathcal{L}|=20$ unités thermiques sur un
+horizon de $T=24$ pas de temps horaires ($dt=1$\,h).
+La demande journalière varie entre \textbf{1\,180\,MW} (creux nocturne,
+$t \approx 4$) et \textbf{2\,347\,MW} (pointe matinale, $t \approx 11$), avec
+une demande moyenne de 1\,892\,MW.
+La puissance maximale cumulée du parc thermique est de 3\,477\,MW,
+offrant une réserve de capacité de près de 48\,\% par rapport à la pointe.
+Les unités se répartissent en deux groupes :
+
+\begin{itemize}
+  \item \textbf{Unités de base (U0--U9)} : puissance max entre 100 et 130\,MW,
+        coûts variables entre 37 et 47\,€/MWh, contraintes de marche minimale
+        courtes ($\tau^+_l = 3$--$4$\,h) ;
+  \item \textbf{Unités semi-base et de pointe (U10--U19)} : puissance max entre
+        175 et 328\,MW, coûts variables entre 53 et 64\,€/MWh, contraintes
+        de marche minimale longues ($\tau^+_l = 7$--$13$\,h).
+\end{itemize}
+
+\paragraph{Hydraulique — \texttt{20090907\_extended\_pHydro\_18\_none.nc4}.}
+Une cascade simple composée d'un seul réservoir et d'un arc turbine.
+Ses caractéristiques principales sont résumées dans le
+tableau~\ref{tab:hydro_params}.
+
+\begin{table}[H]
+  \centering
+  \caption{Paramètres de la cascade hydraulique utilisée.}
+  \label{tab:hydro_params}
+  \begin{tabular}{lll}
+    \toprule
+    Paramètre & Valeur & Remarque \\
+    \midrule
+    Volume initial $V^0$ & $138\,000$\,m³ & $=92\,\%$ de $V^{\max}$ \\
+    Volume minimal $V^{\min}$ & $60\,000$\,m³ & $\approx 40\,\%$ de $V^{\max}$ \\
+    Volume maximal $V^{\max}$ & $150\,000$\,m³ & \\
+    Apport naturel $a_r$ & $1\,080$\,m³/h & constant sur tout l'horizon \\
+    Puissance max turbine & $24$\,MW & \\
+    Débit max turbine & $23\,400$\,m³/h & \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Avec une puissance maximale de 24\,MW, la contribution hydraulique représente
+au plus $\mathbf{24 / 2\,347 \approx 1\,\%}$ de la demande de pointe. Ce
+système est donc un appoint marginal~: l'enjeu de l'optimisation est
+essentiellement thermique.
+
+% -----------------------------------------------------------
+\subsection{Dispatch de puissance}
+% -----------------------------------------------------------
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{/Users/paulcailleu/Documents/Etudes/ENSTA/optimisation_discrete/images/scenario1_power.png}
+  \caption{Dispatch optimal sur 24 pas de temps (empilement des productions
+           thermiques et hydraulique, courbe de demande en pointillés).}
+  \label{fig:dispatch}
+\end{figure}
+
+La figure~\ref{fig:dispatch} représente le mix de production à chaque pas de
+temps~: les aires empilées correspondent aux contributions individuelles des
+20 unités thermiques (U0 à U19) et à la production hydraulique nette, tandis
+que la courbe en pointillés représente la demande.
+
+\paragraph{Équilibre offre--demande.}
+La courbe de production totale (en rouge) est confondue avec la courbe de
+demande, validant la satisfaction de la contrainte d'équilibre à chaque pas
+de temps. Aucun défaut d'approvisionnement n'est observé.
+
+\paragraph{Profil de demande et structure du dispatch.}
+La demande suit un profil journalier typique d'une journée d'automne
+européenne~:
+\begin{itemize}
+  \item creux nocturne autour de 1\,180--1\,200\,MW aux pas $t=3$--$6$ ;
+  \item montée rapide dès $t=7$, pointe vers $t=10$--$12$ autour de 2\,300\,MW ;
+  \item léger creux de mi-journée ($t=15$--$16$, $\approx 1\,850$\,MW)
+        puis remontée en soirée avant une décroissance progressive.
+\end{itemize}
+L'écart entre la production minimale et maximale est de l'ordre de 1\,160\,MW,
+ce qui implique une modulation significative du parc.
+
+\paragraph{Plan de marche des unités.}
+Les bandes empilées au bas du graphe (U0 à U16) sont quasi-horizontales~:
+ces unités fonctionnent à puissance quasiment constante sur toute la journée.
+Ce comportement s'explique par leurs contraintes de durées minimales de marche
+élevées (jusqu'à 13\,h pour U17), qui les contraignent à demeurer en service
+une fois démarrées.
+La modulation pour suivre la demande est assurée par les grandes unités U15
+à U19~: leurs bandes s'élargissent sensiblement aux heures de pointe
+($t=9$--$12$) et se rétrécissent aux heures creuses.
+En particulier, U18 ($P^{\max}=284$\,MW, $\tau^+=11$\,h) et U19
+($P^{\max}=328$\,MW, $\tau^+=12$\,h) constituent les unités de flexibilité
+principales.
+
+\paragraph{Contribution hydraulique.}
+La fine bande labellisée \og Hydro (prod) \fg{} est presque invisible sur
+la figure, ce qui confirme le rôle marginal de la cascade hydraulique dans ce
+scénario~: la turbine produit au maximum 24\,MW, soit moins de 1\,\% de la
+production totale. L'absence de pompage (Fminus = 0) est cohérente avec les
+données du fichier pHydro utilisé.
+
+% -----------------------------------------------------------
+\subsection{Évolution du réservoir hydraulique}
+% -----------------------------------------------------------
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.85\linewidth]{/Users/paulcailleu/Documents/Etudes/ENSTA/optimisation_discrete/images/scenario1_reservoir.png}
+  \caption{Taux de remplissage du réservoir hydraulique (\% de $V^{\max}$)
+           au cours des 24 pas de temps.}
+  \label{fig:reservoir}
+\end{figure}
+
+La figure~\ref{fig:reservoir} trace l'évolution du taux de remplissage du
+réservoir (en \% de $V^{\max} = 150\,000$\,m³).
+
+\paragraph{Vidange progressive jusqu'à la borne inférieure.}
+Le réservoir débute à 92\,\% de sa capacité ($V^0 = 138\,000$\,m³) et se
+vide progressivement pour atteindre environ 40\,\% ($\approx 60\,000$\,m³)
+au dernier pas de temps, soit la quasi-totalité de la ressource mobilisable
+au-dessus de $V^{\min}$.
+Ce comportement est rationnel du point de vue de l'optimiseur~: l'eau est
+une ressource gratuite dont l'usage réduit le recours aux unités thermiques
+coûteuses. L'optimiseur est donc incité à turbiner au maximum, dans la limite
+des contraintes hydrauliques et de la borne $V^{\min}$.
+
+\paragraph{Paliers et décrochements.}
+La courbe de remplissage présente plusieurs décrochements nets~:
+\begin{itemize}
+  \item \textbf{$t=3$} : chute de 92\,\% à 78\,\%. La demande amorce sa
+        remontée matinale~; l'optimiseur anticipe en sollicitant la turbine
+        plus intensément.
+  \item \textbf{$t=10$} : chute de 82\,\% à 67\,\%, coïncidant avec la
+        pointe de demande ($\approx 2\,300$\,MW). La turbine fonctionne alors
+        au maximum de sa puissance afin de retarder le démarrage d'unités
+        thermiques supplémentaires.
+  \item \textbf{$t=14$} : chute de 70\,\% à 55\,\%, qui correspond à la
+        deuxième rampe ascendante de la demande en fin d'après-midi.
+  \item \textbf{$t=24$} : descente finale à 40\,\%, soit le niveau $V^{\min}$,
+        sans dépassement de la contrainte volumique inférieure.
+\end{itemize}
+Entre les décrochements, le réservoir se stabilise voire remonte légèrement
+grâce aux apports naturels constants ($a_r = 1\,080$\,m³/h), ce qui
+correspond aux périodes de faible sollicitation de la turbine.
+
+\paragraph{Bilan hydrique.}
+Sur l'ensemble de l'horizon, la variation nette de volume est~:
+\[
+  \Delta V = V(T) - V(1) \approx 60\,000 - 138\,000 = -78\,000\;\text{m}^3.
+\]
+Les apports totaux sur 24 pas sont $a_r \times T = 1\,080 \times 24 =
+25\,920$\,m³. Le volume total turbiné est donc~:
+\[
+  Q_{\rm turbine} = \Delta V_{\rm perte} + Q_{\rm apport}
+  = 78\,000 + 25\,920 \approx 103\,920\;\text{m}^3,
+\]
+soit un débit moyen d'environ $4\,330$\,m³/h, représentant $\approx 18\,\%$
+du débit maximal admissible (23\,400\,m³/h) et une puissance moyenne de
+l'ordre de $\mathbf{4}$\,MW.
+
+% -----------------------------------------------------------
+\subsection{Bilan — scénario 1}
+% -----------------------------------------------------------
+
+Ce premier scénario valide la cohérence du modèle MILP mis en œuvre~:
+la contrainte d'équilibre offre--demande est satisfaite à chaque instant,
+les contraintes de marche/arrêt des unités thermiques sont respectées, et la
+cascade hydraulique est exploitée de façon optimale jusqu'à l'épuisement de
+la ressource stockable.
+
+Plusieurs limites sont à noter~:
+\begin{itemize}
+  \item \textbf{Faible contribution hydraulique.} Dans cette instance, la
+        cascade représente moins de 1\,\% de la demande. Des scénarios avec
+        des cascades plus importantes (p.~ex.\ \texttt{pHydro\_18\_none}) ou
+        en activant le pompage permettraient d'illustrer pleinement l'apport
+        du couplage hydro-thermique.
+  \item \textbf{Horizon court.} Un horizon de 24\,h est suffisant pour
+        observer un cycle complet de la demande, mais trop court pour
+        valoriser des réservoirs à cycle hebdomadaire ou saisonnier.
+  \item \textbf{Solveur GLPK avec limite de temps.} Le solveur GLPK est
+        utilisé avec une limite de 300\,s. Pour des instances plus larges
+        (169 unités thermiques, $T=96$), cette limite peut être atteinte
+        avant l'optimalité~; un solveur commercial (Gurobi, CPLEX) serait
+        nécessaire pour garantir la solution optimale.
+\end{itemize}
+
+% ============================================================
+\newpage
+\section{Scénario 2 : cascade hydro-thermique \texttt{pHydro\_1}}
+% ============================================================
+
+\subsection{Instance testée}
+
+Le scénario 2 conserve le même parc thermique (\texttt{20\_0\_3\_w.nc4},
+20 unités, $T=24$\,h) mais substitue la cascade hydraulique par
+\texttt{20090907\_pHydro\_1\_none.nc4} (\texttt{UnitBlock\_149}).
+Cette nouvelle instance est beaucoup plus représentative~: elle
+modélise une cascade de \textbf{5 réservoirs et 6 arcs}, dont la
+puissance hydraulique cumulée atteint $\mathbf{480}$\,\textbf{MW},
+soit $\approx 20\,\%$ de la demande de pointe.
+
+\paragraph{Topologie.}
+Le réseau hydraulique est un DAG non-simple présentant deux arcs en
+parallèle entre les réservoirs R3 et R4 (arcs $k=3$ et $k=4$).
+Le tableau~\ref{tab:arcs_s2} décrit la connectivité et les capacités
+de chaque arc.
+
+\begin{table}[H]
+  \centering
+  \caption{Arcs de la cascade hydraulique — scénario 2.}
+  \label{tab:arcs_s2}
+  \begin{tabular}{cccccc}
+    \toprule
+    Arc $k$ & De & Vers & $P^{\max+}_k$ (MW) & $F^{\max+}_k$ (m³/h) & Remarque \\
+    \midrule
+    1 & R1 & R2 &  71 & 162\,000 & \\
+    2 & R2 & R3 &   0 & 810\,000 & conduit (pas de turbine) \\
+    3 & R3 & R4 & 105 & 268\,200 & \multirow{2}{*}{arcs parallèles} \\
+    4 & R3 & R4 &  40 & 106\,200 & \\
+    5 & R4 & R5 & 260 & 882\,000 & plus grande turbine \\
+    6 & R5 & R6 &   4 &  63\,000 & décharge \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{État initial des réservoirs.}
+Les paramètres initiaux sont résumés dans le tableau~\ref{tab:res_s2}.
+R2 est un nœud de transit ($V^{\max} = V^0 = 1\,000$\,m³) dont le
+volume est quasi nul à l'échelle de la cascade.
+
+\begin{table}[H]
+  \centering
+  \caption{Paramètres des réservoirs — scénario 2.}
+  \label{tab:res_s2}
+  \begin{tabular}{cllll}
+    \toprule
+    Réservoir & $V^0$ (m³) & $V^{\min}$ (m³) & $V^{\max}$ (m³) & Taux initial \\
+    \midrule
+    R1 (amont) & $2{,}66 \times 10^8$ & 0 & $4{,}07 \times 10^8$ & 65,2\,\% \\
+    R2 (transit) & $1\,000$ & 0 & $1\,000$ & 100\,\% \\
+    R3 & $1{,}34 \times 10^8$ & 0 & $1{,}58 \times 10^8$ & 84,5\,\% \\
+    R4 & $8{,}97 \times 10^7$ & 0 & $1{,}16 \times 10^8$ & 77,5\,\% \\
+    R5 (aval)  & $2{,}59 \times 10^6$ & $3 \times 10^5$ & $3{,}61 \times 10^6$ & 71,8\,\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Les apports naturels alimentent R3 ($a = 14\,400$\,m³/h), R4
+($a = 5\,400$\,m³/h) et R5 ($a = 1\,800$\,m³/h), ce qui permet à la
+cascade d'être partiellement renouvelée sur l'horizon.
+
+% -----------------------------------------------------------
+\subsection{Dispatch de puissance}
+% -----------------------------------------------------------
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{/Users/paulcailleu/Documents/Etudes/ENSTA/optimisation_discrete/images/scenario2_power.png}
+  \caption{Dispatch optimal — scénario 2 (cascade \texttt{pHydro\_1}, 480\,MW hydraulique).}
+  \label{fig:dispatch_s2}
+\end{figure}
+
+\paragraph{Contribution hydraulique visible.}
+Contrairement au scénario 1, la bande \og Hydro (prod) \fg{} est
+clairement identifiable dans la figure~\ref{fig:dispatch_s2}. La
+production hydraulique peut atteindre jusqu'à $\approx 480$\,MW,
+réduisant d'autant le recours au parc thermique.
+
+\paragraph{Modulation thermique réduite.}
+Avec 480\,MW d'hydraulique disponibles, les grandes unités thermiques
+de semi-base et de pointe (U15--U19) n'ont plus besoin de moduler aussi
+fortement que dans le scénario 1 pour suivre la demande. Leur bande
+dans la figure est plus régulière, et certaines petites unités peuvent
+être maintenues à puissance réduite aux heures creuses.
+
+\paragraph{Équilibre offre--demande.}
+La courbe de production totale (rouge) reste confondue avec la courbe
+de demande (pointillés), confirmant la satisfaction de la contrainte
+à chaque pas de temps.
+
+% -----------------------------------------------------------
+\subsection{Évolution des réservoirs hydrauliques}
+% -----------------------------------------------------------
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{/Users/paulcailleu/Documents/Etudes/ENSTA/optimisation_discrete/images/scenario2_reservoir.png}
+  \caption{Taux de remplissage des 5 réservoirs (\% de $V^{\max}$) — scénario 2.}
+  \label{fig:reservoir_s2}
+\end{figure}
+
+La figure~\ref{fig:reservoir_s2} montre l'évolution simultanée de cinq
+réservoirs~: leur comportement contrasté illustre la richesse du couplage
+hydraulique sur une cascade réelle.
+
+\paragraph{R1 (amont, bleu) — grand réservoir stable.}
+R1 débute à 65\,\% et reste quasi-horizontal tout au long des 24\,h.
+Sa très grande capacité ($V^{\max} = 4{,}07 \times 10^8$\,m³) amortit
+les variations de débit de l'arc~1 (max 162\,000\,m³/h)~: même à plein
+régime pendant 24\,h, la variation de volume n'excéderait que
+$162\,000 \times 24 / 4{,}07 \times 10^8 \approx 1$\,\% de la capacité.
+Ce réservoir constitue donc un volant d'énergie à très long terme, dont
+le contenu n'est pratiquement pas modifié sur un horizon journalier.
+
+\paragraph{R2 (transit, bleu clair) — nœud de passage.}
+R2 est un nœud de transit de très faible capacité ($V^{\max} = 1\,000$\,m³
+= $V^0$), qui s'avère le point d'entrée de la cascade. Il démarre à 100\,\%
+(plein), se vide quasi instantanément (dès $t=2$) au profit du flux
+turbiné vers R3 via l'arc sans turbine (arc~2), et reste à l'état vide
+pendant toute la journée. L'arc~2 ($P^{\max}=0$) ne produit pas
+d'électricité mais assure le transit de l'eau turbinée par l'arc~1
+depuis R1 jusque vers R3.
+
+\paragraph{R3 (rouge) et R4 (rose) — réservoirs intermédiaires stables.}
+Ces deux réservoirs conservent un niveau de remplissage élevé et stable
+tout au long de l'horizon~: R3 oscille entre 83 et 85\,\% (taux initial
+84,5\,\%) et R4 entre 79 et 83\,\% (taux initial 77,5\,\%).
+Leurs apports naturels respectifs de 14\,400 et 5\,400\,m³/h compensent
+partiellement les débits turbinés. L'optimiseur maintient leur niveau
+élevé, préservant ainsi la flexibilité hydraulique pour les arcs aval
+(arc~5, 260\,MW).
+
+\paragraph{R5 (aval, vert) — dynamique de remplissage en cours de journée.}
+R5 est le réservoir le plus petit et le plus dynamique ($V^{\max} =
+3{,}61 \times 10^6$\,m³). Son évolution est révélatrice de la stratégie
+d'optimisation~:
+\begin{itemize}
+  \item \textbf{$t=1$--$8$, décharge lente~:} R5 décroît de 72\,\% à
+        environ 60\,\% car l'arc~6 (décharge, 4\,MW) évacue davantage
+        que les apports entrants.
+  \item \textbf{$t=9$--$14$, remplissage rapide~:} L'optimiseur augmente
+        fortement le débit sur l'arc~5 (turbine R4$\to$R5, 260\,MW) pour
+        répondre à la pointe de demande. L'eau turbinée depuis R4 remplit
+        R5 plus vite qu'elle n'est évacuée~: le réservoir monte de 60\,\%
+        à \textbf{100\,\%} ($V^{\max}$ atteint) en seulement 5 à 6 pas
+        de temps.
+  \item \textbf{$t=15$--$24$, saturation et stabilisation~:} R5 oscille
+        autour de 89--100\,\%, contrainte par sa borne supérieure.
+        L'arc~6 évacue le surplus et empêche le dépassement de $V^{\max}$.
+\end{itemize}
+Ce comportement illustre la contrainte de stockage borné~: lorsque le
+réservoir aval est plein, l'optimiseur ne peut plus turbiner autant sur
+l'arc~5 même si la demande l'exigerait, sous peine de violer $V^{\max}$.
+
+% -----------------------------------------------------------
+\subsection{Bilan comparatif et limites}
+% -----------------------------------------------------------
+
+\paragraph{Comparaison avec le scénario 1.}
+Le tableau~\ref{tab:compare} synthétise les principales différences entre
+les deux scénarios.
+
+\begin{table}[H]
+  \centering
+  \caption{Comparaison des deux scénarios.}
+  \label{tab:compare}
+  \begin{tabular}{lll}
+    \toprule
+    Critère & Scénario 1 & Scénario 2 \\
+    \midrule
+    Fichier hydro & \texttt{extended\_pHydro\_18} & \texttt{pHydro\_1} \\
+    Réservoirs & 1 & 5 (dont 1 transit) \\
+    Arcs turbine & 1 & 5 (dont 1 sans turbine) \\
+    Topologie & chaîne simple & DAG non-simple (arcs parallèles) \\
+    $P^{\max}_{\rm hydro}$ & 24\,MW & 480\,MW \\
+    Part hydraulique dans la demande & $< 1\,\%$ & $\approx 20\,\%$ \\
+    Réservoirs avec apports naturels & 0 & 3 (R3, R4, R5) \\
+    Comportement dominant & thermique pur & couplage hydro-thermique \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Le scénario 2 met en lumière le rôle fondamental des cascades
+hydrauliques de taille réaliste dans l'optimisation d'un parc mixte~:
+la production hydraulique (480\,MW disponibles) permet de réduire
+significativement le recours aux unités thermiques coûteuses aux heures
+de pointe. Les dynamiques contrastées des cinq réservoirs illustrent
+comment l'optimiseur orchestre les flux d'eau à travers un réseau
+complexe pour maximiser l'écrêtage des coûts.
+
+\paragraph{Limites.}
+La topologie non-simple de \texttt{pHydro\_1} (arcs parallèles entre
+R3 et R4) est prise en charge par la formulation DAG générale du
+modèle~; le solveur est cependant averti via un message de mise en
+garde. Par ailleurs, la saturation de R5 ($V^{\max}$ atteint dès
+$t\approx14$) indique que la contrainte de volume supérieure est
+active~: dans un scénario multi-jours, ce réservoir devrait soit être
+dimensionné plus grand, soit l'arc de décharge (arc~6) devrait disposer
+d'une capacité turbine plus importante pour évacuer les surplus.
+
+% ============================================================
+\newpage
+\section{Scénario 3 : grande cascade STEP \texttt{pHydro\_3}}
+% ============================================================
+
+\subsection{Instance testée}
+
+Le scénario 3 introduit deux modifications importantes par rapport aux
+scénarios précédents~: un parc thermique plus flexible (\texttt{20\_0\_4\_w.nc4})
+et une cascade hydraulique de grande taille incluant des capacités de
+pompage-turbinage (\texttt{20090907\_pHydro\_3\_none.nc4},
+\texttt{UnitBlock\_151}).
+
+\paragraph{Thermique — \texttt{20\_0\_4\_w.nc4}.}
+Le parc comprend toujours 20 unités sur $T=24$\,h, mais la demande est
+plus faible (1\,010 à \textbf{2\,009}\,MW, moyenne 1\,620\,MW) et le
+parc se distingue par la grande flexibilité des petites unités~:
+
+\begin{itemize}
+  \item \textbf{Unités de base (U0--U9)} : $P^{\max}$ entre 103 et
+        127\,MW, coûts variables entre 38 et 47\,€/MWh,
+        \textbf{$\tau^+_l = \tau^-_l = 1$\,h} — ces unités peuvent
+        être démarrées ou arrêtées à chaque pas de temps, offrant une
+        flexibilité quasi-instantanée ;
+  \item \textbf{Unités de semi-base et de pointe (U10--U19)} :
+        $P^{\max}$ entre 182 et 302\,MW, coûts variables entre 52 et
+        63\,€/MWh, $\tau^+_l = 7$--$13$\,h (comme dans les scénarios
+        précédents).
+\end{itemize}
+
+\paragraph{Hydraulique — \texttt{pHydro\_3\_none.nc4} (\texttt{UnitBlock\_151}).}
+La cascade modélise \textbf{5 réservoirs et 9 arcs}, dont un arc de
+pompage réversible (arc~6).  La puissance turbine disponible atteint
+$\mathbf{1\,064}$\,\textbf{MW}, soit $\approx 53\,\%$ de la demande
+de pointe. Le tableau~\ref{tab:arcs_s3} décrit la topologie.
+
+\begin{table}[H]
+  \centering
+  \caption{Arcs de la cascade hydraulique — scénario 3.}
+  \label{tab:arcs_s3}
+  \begin{tabular}{cccccl}
+    \toprule
+    Arc $k$ & De & Vers & $P^{\max}_k$ (MW) & $F^{\max}_k$ (m³/h) & Nature \\
+    \midrule
+    1 & R1 & R2 &   0 &          0 & inactif \\
+    2 & R1 & R2 &  50 &  140\,400 & turbine \\
+    3 & R2 & R3 & 190 &  153\,000 & turbine \\
+    4 & R2 & R3 &  20 &   16\,920 & turbine parallèle \\
+    5 & R4 & R3 & 760 &  399\,600 & \textbf{grande turbine} \\
+    6 & R4 & R3 & (615) &      0 & \textbf{pompe réversible} ($F^{\min}=-243\,000$) \\
+    7 & R3 & R5 &  34 &  165\,600 & turbine \\
+    8 & R3 & R5 &   0 &          0 & inactif \\
+    9 & R5 & R6 &  10 &  198\,000 & décharge ($F^{\min}=7\,200$) \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+L'arc~6 est un \emph{turbine réversible} (STEP)~: sa borne de débit
+$F^{\min}=-243\,000$\,m³/h permet un flux inverse, pompant l'eau de
+R3 vers R4 en consommant jusqu'à 615\,MW, ce qui stocke de l'énergie
+dans le réservoir amont. L'arc~9 dispose d'un débit minimum imposé
+($F^{\min}=7\,200$\,m³/h), représentant un débit écologique ou
+réglementaire.
+
+\paragraph{État initial des réservoirs.}
+La configuration initiale est marquée par un fort déséquilibre~:
+R4 est presque plein (89,9\,\%) et R3 presque vide (16,3\,\%),
+créant un fort potentiel de turbinage via l'arc~5 (760\,MW).
+Le tableau~\ref{tab:res_s3} résume les paramètres.
+
+\begin{table}[H]
+  \centering
+  \caption{Paramètres des réservoirs — scénario 3.}
+  \label{tab:res_s3}
+  \begin{tabular}{cllll}
+    \toprule
+    Réservoir & $V^0$ (m³) & $V^{\min}$ (m³) & $V^{\max}$ (m³) & Taux initial \\
+    \midrule
+    R1 (amont) & $1{,}52 \times 10^8$ & 0                 & $2{,}58 \times 10^8$ & 59,1\,\% \\
+    R2         & $1{,}66 \times 10^6$ & $1{,}48 \times 10^6$ & $3{,}13 \times 10^6$ & 53,1\,\% \\
+    R3         & $4{,}80 \times 10^6$ & $8{,}00 \times 10^5$ & $2{,}95 \times 10^7$ & 16,3\,\% \\
+    R4 (amont) & $2{,}73 \times 10^7$ & $1{,}54 \times 10^6$ & $3{,}04 \times 10^7$ & 89,9\,\% \\
+    R5 (aval)  & $7{,}19 \times 10^5$ & $5{,}30 \times 10^5$ & $1{,}32 \times 10^6$ & 54,3\,\% \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Les apports naturels alimentent R2 ($360$\,m³/h), R3 ($1\,800$\,m³/h)
+et R5 ($360$\,m³/h).
+
+% -----------------------------------------------------------
+\subsection{Dispatch de puissance}
+% -----------------------------------------------------------
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{/Users/paulcailleu/Documents/Etudes/ENSTA/optimisation_discrete/images/scenario3_power.png}
+  \caption{Dispatch optimal — scénario 3 (cascade \texttt{pHydro\_3}, 1\,064\,MW turbine
+           + pompage réversible).}
+  \label{fig:dispatch_s3}
+\end{figure}
+
+\paragraph{Hydraulique dominant.}
+La figure~\ref{fig:dispatch_s3} illustre un renversement de la
+hiérarchie de production~: la bande \og Hydro (prod) \fg{}
+constitue la \emph{majeure partie} de la production, couvrant à
+elle seule l'essentiel de la demande aux heures de pointe.
+Avec 1\,064\,MW de capacité turbine et une demande maximale de
+2\,009\,MW, l'hydraulique peut à lui seul couvrir plus de la moitié
+de la demande de pointe, contre moins de 1\,\% et 20\,\% dans les
+scénarios précédents.
+
+\paragraph{Flexibilité thermique des petites unités.}
+Les unités U0--U9, dont les contraintes de durée minimale de marche
+se réduisent à $\tau^+ = \tau^- = 1$\,h, jouent ici un rôle de
+\emph{réglage fin}. Contrairement aux scénarios 1 et 2 où ces unités
+fonctionnaient en base continue, elles peuvent ici être démarrées et
+arrêtées librement à chaque pas de temps pour compléter exactement la
+production hydraulique. Leurs bandes dans le graphe de dispatch
+présentent davantage d'irrégularités, traduisant cette flexibilité
+accrue.
+
+\paragraph{Rôle des grandes unités thermiques.}
+Les unités U10--U19 (longues contraintes de marche) sont maintenues en
+service continu pour assurer la puissance de base qui ne peut être
+couverte par l'hydraulique seul aux heures creuses. Leur contribution
+est modeste en valeur relative (environ 500--700\,MW), mais
+indispensable pour garantir l'équilibre offre--demande aux pas de temps
+à faible production hydraulique.
+
+\paragraph{Équilibre offre--demande.}
+La production totale suit exactement la courbe de demande (1\,010--2\,009\,MW),
+validant la satisfaction de la contrainte à chaque pas de temps,
+malgré la complexité de la topologie hydraulique (9 arcs, STEP).
+
+% -----------------------------------------------------------
+\subsection{Évolution des réservoirs hydrauliques}
+% -----------------------------------------------------------
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{/Users/paulcailleu/Documents/Etudes/ENSTA/optimisation_discrete/images/scenario3_reservoir.png}
+  \caption{Taux de remplissage des 5 réservoirs (\% de $V^{\max}$) — scénario 3.}
+  \label{fig:reservoir_s3}
+\end{figure}
+
+La figure~\ref{fig:reservoir_s3} révèle une dynamique de transfert
+entre réservoirs caractéristique d'un système à accumulation~: les
+deux courbes de R4 et R3 évoluent en sens opposé tout au long de la
+journée.
+
+\paragraph{R4 (rose) — réservoir de tête, décharge continue.}
+R4 débute à 89,9\,\% et se vide de façon quasi-linéaire jusqu'à
+$\approx 47\,\%$ à $t=24$. La variation de volume est~:
+\[
+  \Delta V_{R4} \approx (0{,}899 - 0{,}47)\times 3{,}04\times10^7
+  \approx 1{,}30\times10^7\;\text{m}^3.
+\]
+Cette eau est essentiellement turbinée via l'arc~5
+($P^{\max}=760$\,MW), la grande turbine de la cascade. La décharge
+linéaire indique que le débit sur arc~5 est maintenu quasi-constant
+tout au long de la journée, sans moduler selon la demande — signe
+que cet arc fonctionne à plein régime en permanence pour maximiser la
+production hydraulique gratuite.
+
+\paragraph{R3 (rouge) — réservoir central, remplissage progressif.}
+R3 démarre à seulement 16,3\,\% (presque vide) et monte régulièrement
+jusqu'à $\approx 47\,\%$ à $t=24$~:
+\[
+  \Delta V_{R3} \approx (0{,}47 - 0{,}163)\times 2{,}95\times10^7
+  \approx 9{,}1\times10^6\;\text{m}^3.
+\]
+R3 reçoit l'essentiel de son eau de R4 (arc~5) ainsi que des apports
+naturels constants de 1\,800\,m³/h. L'eau qu'il reçoit est partiellement
+redirigée vers R5 (arc~7) et déchargée in fine par arc~9.
+La différence entre l'entrée de R4 ($1{,}30\times10^7$\,m³) et la
+hausse nette de R3 ($0{,}91\times10^7$\,m³) correspond aux volumes
+turbinés par les arcs~7 et~9 ainsi qu'aux apports de R2.
+
+\paragraph{R1 (bleu) et R2 (bleu clair) — réservoirs secondaires stables.}
+R1, grand réservoir amont ($V^{\max}=2{,}58\times10^8$\,m³), reste
+stable à $\approx 59$\,\% tout au long de l'horizon~: l'arc~2
+(50\,MW) turbine modérément depuis R1 vers R2, mais le volume déplacé
+reste négligeable face à la capacité de R1.
+R2 présente des oscillations entre 50 et 65\,\% aux pas $t=4$--$8$,
+reflétant les ajustements transitoires entre l'apport de R1 (arc~2)
+et les sorties vers R3 (arcs~3 et~4). Il se stabilise ensuite autour
+de 50--55\,\%.
+
+\paragraph{R5 (vert, aval) — dynamique en cloche.}
+R5 ($V^{\max}=1{,}32\times10^6$\,m³, le plus petit réservoir) présente
+une évolution en cloche~:
+\begin{itemize}
+  \item \textbf{$t=1$--$7$, montée de 54 à 83\,\%}~: l'arc~7
+        (turbine R3$\to$R5, 34\,MW) injecte davantage d'eau que
+        l'arc~9 n'en évacue, malgré le débit minimum imposé de
+        7\,200\,m³/h sur ce dernier~;
+  \item \textbf{$t=7$--$24$, descente de 83 à 47\,\%}~: une fois R3
+        suffisamment rempli, l'arc~7 peut réduire son débit ; l'arc~9
+        assure la décharge continue, faisant baisser R5 jusqu'à la
+        borne $V^{\min}$ en fin d'horizon.
+\end{itemize}
+Le débit minimum sur l'arc~9 ($F^{\min}=7\,200$\,m³/h) garantit un
+flux résiduel permanent, représentant une contrainte physique ou
+réglementaire (débit réservé).
+
+% -----------------------------------------------------------
+\subsection{Bilan comparatif des trois scénarios}
+% -----------------------------------------------------------
+
+Le tableau~\ref{tab:compare3} étend la comparaison au scénario 3.
+
+\begin{table}[H]
+  \centering
+  \caption{Comparaison des trois scénarios.}
+  \label{tab:compare3}
+  \begin{tabular}{llll}
+    \toprule
+    Critère & Scénario 1 & Scénario 2 & Scénario 3 \\
+    \midrule
+    Fichier hydro & \texttt{ext.\_pHydro\_18} & \texttt{pHydro\_1} & \texttt{pHydro\_3} \\
+    Réservoirs & 1 & 5 & 5 \\
+    Arcs (dont actifs) & 1 / 1 & 6 / 5 & 9 / 7 \\
+    Pompage réversible & non & non & oui (arc~6) \\
+    $P^{\max}_{\rm turbine}$ & 24\,MW & 480\,MW & 1\,064\,MW \\
+    Part hydro / demande pointe & $<1$\,\% & $\approx 20$\,\% & $\approx 53$\,\% \\
+    $\tau^+$ unités U0--U9 & 3--4\,h & 3--4\,h & \textbf{1\,h} \\
+    Demande max & 2\,347\,MW & 2\,347\,MW & 2\,009\,MW \\
+    Réservoir critique & vidange $V^{\min}$ & saturation $V^{\max}$ (R5) & transfert R4$\to$R3 \\
+    Comportement dominant & thermique & couplage HT & hydraulique dominant \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Les trois scénarios forment une progression révélatrice~: le scénario~1
+valide la formulation sur un cas quasi-purement thermique ; le
+scénario~2 introduit un couplage hydro-thermique réel avec une cascade
+à topologie complexe ; le scénario~3 pousse le système jusqu'à un
+régime hydraulique dominant, où la flexibilité thermique (petites
+unités à $\tau^+=1$\,h) et la grande turbine (760\,MW) de la STEP
+sont les leviers principaux de l'optimisation.
+
+\newpage
+
+\section*{Conclusion}
+\addcontentsline{toc}{section}{Conclusion}
+
+Ce travail a mis en œuvre une formulation MILP complète du problème d'Unit Commitment hydro-thermique, puis l'a validée sur trois scénarios de complexité croissante.
+
+Les trois scénarios illustrent une progression cohérente~: le scénario~1, avec un unique réservoir de faible capacité (24\,MW), est quasi-purement thermique~; le scénario~2 introduit une véritable cascade à cinq réservoirs (480\,MW hydrauliques) où le couplage hydro-thermique est significatif~; enfin, le scénario~3, doté d'une grande STEP réversible (760\,MW turbine, 615\,MW pompe), place l'hydraulique en position dominante en couvrant plus de 50\,\% de la demande.
+
+La formulation MILP s'est révélée capable de gérer les contraintes de temps minimum de fonctionnement et d'arrêt, les courbes de turbinage linéaires par morceaux, les flux d'eau en cascade et, dans le scénario~3, le reversement de la STEP. Le solveur GLPK a trouvé des solutions admissibles dans les trois cas, bien que la limite de temps de 300\,s ne garantisse pas l'optimalité globale pour les instances les plus complexes.
+
+En perspective, plusieurs pistes d'amélioration sont envisageables~: tester des instances sur des horizons plus longs (plusieurs jours), activer le pompage dans les scénarios~1 et~2 pour en mesurer le bénéfice, recourir à un solveur commercial tel que Gurobi pour améliorer la qualité des solutions sur les instances difficiles, ou encore coupler plusieurs blocs hydro afin de modéliser un réseau de centrales interconnectées.\\
+
+
+
+\textbf{Références et code :} \href{https://github.com/PaulCailleu/Optimisation_discrete}{$github.com/PaulCailleu/Optimisation\_discrete$}
 
 \end{document}
+

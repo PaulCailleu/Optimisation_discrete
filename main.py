@@ -39,12 +39,16 @@ def extract_time_series(model):
         sum(thermal[l][i] for l in model.L) + hydro_net[i] for i in range(len(times))
     ]
 
+    # Vmax for each displayed reservoir (needed for fill-% in the animation)
+    vmax = {r: pyo.value(model.Vmax[r]) for r in volumes}
+
     return {
         "times": times,
         "demand": demand,
         "thermal": thermal,
         "commitment": commitment,
         "volumes": volumes,
+        "vmax": vmax,
         "hydro_gen": hydro_gen,
         "pump_use": pump_use,
         "hydro_net": hydro_net,
@@ -163,11 +167,62 @@ def build_figures(series):
         legend_y=-0.2,
     )
 
-    # Animated "water level" bars per réservoir
-    reservoirs = list(volumes.keys())
+    # Fill percentage over time — one line per reservoir, same axis (0–100 %)
+    # Reservoirs share the same scale so the curves are directly comparable.
+    # Ordered by reservoir index (amont first = top of legend).
+    fill_fig = go.Figure()
+    vmax = series["vmax"]
+    for r in sorted(volumes.keys()):
+        label = (
+            f"R{r} (amont)" if r == min(volumes) else
+            f"R{r} (aval)"  if r == max(volumes) else
+            f"R{r}"
+        )
+        pct = [round(100.0 * v / vmax[r], 2) if vmax[r] > 0 else 0.0
+               for v in volumes[r]]
+        fill_fig.add_trace(go.Scatter(
+            x=times,
+            y=pct,
+            mode="lines+markers",
+            name=label,
+        ))
+    fill_fig.update_layout(
+        title="Taux de remplissage des réservoirs (% de Vmax)",
+        xaxis_title="Temps",
+        yaxis=dict(title="Remplissage (%)", range=[0, 105]),
+        hovermode="x unified",
+        legend_orientation="h",
+        legend_y=-0.2,
+    )
+
+    # Animated fill-level bars — one horizontal bar per reservoir.
+    # Reservoirs are ordered from upstream (lowest index = highest elevation = head lake)
+    # at the TOP to downstream at the BOTTOM, matching the physical cascade layout.
+    # The x-axis shows the fill level as a percentage of Vmax (0–100 %).
+    vmax = series["vmax"]
+    # Sort ascending so that R1 (amont) ends up at the top after yaxis reversal.
+    reservoirs = sorted(volumes.keys())
+    labels = [f"R{r} (amont)" if r == reservoirs[0] else
+              f"R{r} (aval)"  if r == reservoirs[-1] else
+              f"R{r}" for r in reservoirs]
+
+    def _fill_pct(r, idx):
+        v = volumes[r][idx]
+        return round(100.0 * v / vmax[r], 2) if vmax[r] > 0 else 0.0
+
+    def _hover(r, idx):
+        v = volumes[r][idx]
+        pct = _fill_pct(r, idx)
+        return f"V={v:.4g}  ({pct:.1f}% de Vmax={vmax[r]:.4g})"
+
     base_frame = go.Bar(
-        x=[f"R{r}" for r in reservoirs],
-        y=[volumes[r][0] for r in reservoirs],
+        x=[_fill_pct(r, 0) for r in reservoirs],
+        y=labels,
+        orientation="h",
+        text=[f"{_fill_pct(r, 0):.1f}%" for r in reservoirs],
+        textposition="inside",
+        hovertext=[_hover(r, 0) for r in reservoirs],
+        hoverinfo="y+text",
         marker=dict(color="royalblue", opacity=0.75),
     )
 
@@ -178,19 +233,25 @@ def build_figures(series):
                 name=str(t),
                 data=[
                     go.Bar(
-                        x=[f"R{r}" for r in reservoirs],
-                        y=[volumes[r][idx] for r in reservoirs],
+                        x=[_fill_pct(r, idx) for r in reservoirs],
+                        y=labels,
+                        orientation="h",
+                        text=[f"{_fill_pct(r, idx):.1f}%" for r in reservoirs],
+                        textposition="inside",
+                        hovertext=[_hover(r, idx) for r in reservoirs],
+                        hoverinfo="y+text",
                         marker=dict(color="royalblue", opacity=0.8),
                     )
                 ],
-                layout=go.Layout(title_text=f"Niveaux des réservoirs – t={t}"),
+                layout=go.Layout(title_text=f"Taux de remplissage des réservoirs – t={t}"),
             )
         )
 
     anim_layout = go.Layout(
-        title="Animation des volumes (play)",
-        xaxis=dict(title="Réservoir"),
-        yaxis=dict(title="Volume", range=[0, (max(max(v) for v in volumes.values()) * 1.1) if volumes else 1]),
+        title="Cascade hydraulique — taux de remplissage (amont en haut)",
+        xaxis=dict(title="Taux de remplissage (%)", range=[0, 110]),
+        # autorange='reversed' puts R1 (first label) at the TOP → head lake at top
+        yaxis=dict(title="Réservoir", autorange="reversed"),
         updatemenus=[
             {
                 "type": "buttons",
@@ -231,6 +292,7 @@ def build_figures(series):
         "dispatch": dispatch_fig,
         "commitment": commit_fig,
         "volumes": volumes_fig,
+        "fill": fill_fig,
         "animation": anim_fig,
     }
 
@@ -443,6 +505,8 @@ def main():
         st.plotly_chart(figs["commitment"], width='stretch')
     with col_b:
         st.plotly_chart(figs["volumes"], width='stretch')
+
+    st.plotly_chart(figs["fill"], width='stretch')
 
     st.subheader("Animation volumes réservoirs")
     st.plotly_chart(figs["animation"], width='stretch')
